@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Work+Sans&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href={% static 'css/style.css' %}>
+
+
+    <title>Pizza Delivery</title>
+</head>
+
+<body>
+<header class="profile-header">
+    {% include 'header_section.html' %}
+
+</header>
+
+<main>
+    <section class="profile-navigation">
+        {% if request.user.is_authenticated %}
+
+            <ul class="menu-nav" role="list">
+                <li>
+                    <a href="{% url 'profile_details' request.user.pk %}">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'change_password' request.user.pk %}">
+                        Change Password
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'orders' request.user.pk %}">
+                        Order History
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'delete_profile' request.user.pk %}">
+                        Delete Profile
+                    </a>
+                </li>
+            </ul>
+        {% endif %}
+    </section>
+    {% block profile_main %}
+    {% endblock %}
+</main>
+
+<footer>
+    <section class="usefull-links">
+
+        <ul>
+            <li>
+                <a href="#">Menu</a>
+            </li>
+
+            <li>
+                <a href="#">Restaurants</a>
+            </li>
+
+            <li>
+                <a href="#">Terms and Conditions</a>
+            </li>
+
+            <li>
+                <a href="#">Allergens</a>
+            </li>
+
+            <li>
+                <a href="#">Personal Data</a>
+            </li>
+        </ul>
+    </section>
+
+    <section class="social-media">
+
+        <ul>
+            <li class="phone">
+                <a href="#">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>+456 7755 775</div>
+                </a>
+            </li>
+
+            <li class="social facebook">
+                <a href="">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </li>
+
+            <li class="social twitter">
+                <a href="">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </li>
+
+
+            <li class="social instagram">
+                <a href="">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+
+            <li class="social youtube">
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <p>
+        © 2023 Mamma Mia Pizzeria. All Rights Reserved
+    </p>
+</footer>
+</body>
+<script src="{% static 'js/drop-down-menu.js' %}"></script>
+
+</html>

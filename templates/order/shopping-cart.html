@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main_section %}
+
+    <section class="finish-order">
+        <div class="products-wrapper box-fields">
+            <h2>Products in the Cart</h2>
+            {# START FIRST PRODUCT#}
+            <div class="selected-product">
+                <a href="#">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+                <img src='{% static 'images/salad-1.png' %}' alt="">
+                <div class="product-information">
+                    <p>Margarita Pizza</p>
+                    <p>Small Size</p>
+                </div>
+
+                <div>
+                    <div class="quantity-wrapper">
+                        <span class="minus">-</span>
+                        <input type="text" name="quantity" value="1" min="1" max="10" step="1" disabled
+                               id="current-quantity">
+                        <span class="plus">+</span>
+                    </div>
+                    <p>Price: 20.50€</p>
+                </div>
+            </div>
+
+            <div class="selected-product">
+                <a href="#">
+                    <i class="fa-solid fa-trash-can"></i>
+                </a>
+                <img src='{% static 'images/salad-1.png' %}' alt="">
+                <div class="product-information">
+                    <p>Margarita Pizza</p>
+                    <p>Small Size</p>
+                </div>
+
+                <div>
+                    <div class="quantity-wrapper">
+                        <span class="minus">-</span>
+                        <input type="text" name="quantity" value="1" min="1" max="10" step="1" disabled
+                               id="current-quantity">
+                        <span class="plus">+</span>
+                    </div>
+                    <p>Price: 20.50€</p>
+                </div>
+            </div>
+
+            <div class="total-price">
+                Total Price: 40.50
+            </div>
+        </div>
+
+        <div class="payment-information box-fields">
+            <h2>Payment Type</h2>
+            <label class="container">Pay with cash
+                <input type="radio" class="size-select" name="radio" value="Small">
+                <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Pay with Credit Card
+                <input type="radio" class="size-select" name="radio" value="Small">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+
+        <div class="address-information box-fields">
+            <h2>Address Information</h2>
+        </div>
+    </section>
+
+    <div class="checkout-wrapper">
+        <input type="submit" value="Sumbit">
+    </div>
+
+{% endblock %}

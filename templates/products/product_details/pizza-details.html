@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block main_section %}
+
+    <main>
+        <form action="{% url 'pizza_details' slug=product.slug %}" method="post" enctype="multipart/form-data">
+            <section class="product-details-container">
+                <h2>
+                    {{ product.name }}
+                </h2>
+
+                <div class="products">
+                    <div class="img-wrapper">
+                        <img src="/media/{{ product.image }}" alt="product-img">
+                        <div class="description-wrap">
+                            <p class="description">Description:</p>
+                            <p>
+                                {{ product.description }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="product-info-wrapper">
+
+                        <div class="radio-btns">
+                            <h2>Select Size</h2>
+
+                            {% for value, label in form.size.field.choices %}
+                                <label class="container">{{ label }}
+                                    <input type="radio" class="size-select" name="{{ form.size.name }}"
+                                           value="{{ value }}">
+                                    <span class="checkmark"></span>
+                                </label>
+
+                            {% endfor %}
+
+                        </div>
+                        <div>
+                            <p class="quantity-select">
+                                Quantity:
+                            <div class="quantity-wrapper">
+                                <span class="minus">-</span>
+                                <input type="text" name="quantity" value="{{ form.quantity.value|default:1 }}" min="1"
+                                       max="10" step="1"
+                                       id="current-quantity">
+                                <span class="plus">+</span>
+                            </div>
+                            </p>
+
+                            <p class="price" id="final-price">
+                                {{ product.price_small|floatformat:2 }}€
+                            </p>
+
+                            <ul class="all-sizes-prices">
+                                <li id="small">
+                                    {{ product.price_small }}
+                                </li>
+                                <li id="medium">
+                                    {{ product.price_medium }}
+                                </li>
+                                <li id="large">
+                                    {{ product.price_large }}
+                                </li>
+                                <li id="extra-large">
+                                    {{ product.price_extra_large }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-wrap">
+                    <input type="submit" class="shopping-cart product-btn" value="Add to cart">
+                </div>
+            </section>
+{#            <input type="hidden" value="{{ previous }}" name='previous/'>#}
+            {% csrf_token %}
+        </form>
+    </main>
+
+{% endblock %}

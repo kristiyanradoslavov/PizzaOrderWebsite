@@ -1,0 +1,22 @@
+{% extends 'base-profile.html' %}
+
+{% block profile_main %}
+
+    <section>
+        <form id="delete-profile-confirm" method="post" action="{% url 'delete_confirm' request.user.pk %}">
+            <div class="wrap-box">
+                <h1>Delete Confirmation</h1>
+                <p class="confirm-text">
+                    Are you sure you want to delete your profile ?</p>
+                <p class="confirm-text">
+                    If you delete your profile, you will not be able to restore any of the information in it.All the
+                    order history and favourite meals will be lost.
+                </p>
+
+                <input class="btn submit" type="submit" value="Confirm Delete" style="background-color: red">
+                {% csrf_token %}
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

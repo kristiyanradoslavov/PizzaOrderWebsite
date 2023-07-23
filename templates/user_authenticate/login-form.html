@@ -1,0 +1,42 @@
+{% extends 'base-profile.html' %}
+{% load static %}
+
+{% block profile_main %}
+
+    <form id="register-page" method="post" action="{% url 'login_user' %}">
+        <div class="wrap-box">
+            <h1>Login</h1>
+
+            {% for error in form.non_field_errors %}
+                <div class="error-wrapper">
+                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                    <span class="register-error">{{ error }}</span>
+                </div>
+            {% endfor %}
+
+            {% for error in form.username.errors %}
+                <div class="error-wrapper">
+                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                    <span class="register-error">{{ error }}</span>
+                </div>
+            {% endfor %}
+
+            {% for error in form.password.errors %}
+                <div class="error-wrapper">
+                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                    <span class="register-error">{{ error }}</span>
+                </div>
+            {% endfor %}
+
+            <label for="email">Email:</label>
+            {{ form.username }}
+
+            <label for="password">Password:</label>
+            {{ form.password }}
+
+            <input class="btn submit" type="submit" value="Login">
+            {% csrf_token %}
+        </div>
+    </form>
+
+{% endblock %}

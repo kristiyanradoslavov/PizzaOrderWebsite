@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_section %}
+
+   <main>
+        <section class="main-pizza-section" style="background-image: url('{% static "main-piza.jpg" %}')">
+            <h3 class="main-pizza">
+                "Authentic Italian Pizza Made With Love"
+            </h3>
+        </section>
+
+        <section class="first pizza-list">
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+        </section>
+
+        <section class="second pizza-list">
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+
+            <div>
+                <img src="{% static 'images/home-pizza-1.png' %}" alt="">
+                <p> The name of the pizza</p>
+            </div>
+        </section>
+
+        <section class="location-information">
+
+            <div class="map-img">
+                <img src="{% static 'images/location.png' %}" alt="location-img">
+            </div>
+
+            <div class="contacts">
+                <div>
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <p>Congrese Maria Ss. Dei Sette Dolori, Piazza Addolorata, 71121, Foggia FG, Italia</p>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+456 7755 775</p>
+                </div>
+
+                <div>
+                    <i class="fa-regular fa-envelope" style="color: #f50505;"></i>
+                    <p>mammamia@pizzeria.com</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_section %}
+
+    <main>
+        <!-- First Pizza Element -->
+        {% for drink in object_list %}
+            <section class="product-menu-section">
+                <div class="product-element">
+                    <img src="/media/{{ drink.large_image }}" alt="drink-img">
+                    <p>{{ drink.name }}</p>
+                    <p>{{ drink.description|truncatechars:50 }}</p>
+                    <a href="{% url 'drink_details' slug=drink.slug %}" class="shopping-cart">Details</a>
+                </div>
+            </section>
+        {% endfor %}
+    </main>
+
+{% endblock %}
