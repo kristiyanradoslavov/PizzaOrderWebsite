@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_section %}
 
@@ -8,6 +9,13 @@
                 <h2>
                     {{ product.name }}
                 </h2>
+
+                {% for error in form.non_field_errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
                 <div class="products">
                     <div class="img-wrapper">
@@ -23,6 +31,13 @@
 
                         <div class="radio-btns">
                             <h2>Select Size</h2>
+
+                            {% for error in form.size.errors %}
+                                <div class="error-wrapper">
+                                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                                    <span class="register-error">{{ error }}</span>
+                                </div>
+                            {% endfor %}
 
                             {% for value, label in form.size.field.choices %}
                                 <label class="container">{{ label }}
@@ -40,14 +55,14 @@
                             <div class="quantity-wrapper">
                                 <span class="minus">-</span>
                                 <input type="text" name="quantity" value="{{ form.quantity.value|default:1 }}" min="1"
-                                       max="10" step="1"
-                                       id="current-quantity">
+                                       max="10" step="1" readonly
+                                       class="current-quantity">
                                 <span class="plus">+</span>
                             </div>
                             </p>
 
-                            <p class="price" id="final-price">
-                                {{ product.price_small|floatformat:2 }}€
+                            <p class="price product-final-price">
+                               Price: {{ product.price_small|floatformat:2 }}€
                             </p>
 
                             <ul class="all-sizes-prices">
@@ -71,7 +86,6 @@
                     <input type="submit" class="shopping-cart product-btn" value="Add to cart">
                 </div>
             </section>
-{#            <input type="hidden" value="{{ previous }}" name='previous/'>#}
             {% csrf_token %}
         </form>
     </main>

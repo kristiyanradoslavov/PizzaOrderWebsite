@@ -1,56 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_section %}
 
     <main>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{% url 'desert_details' slug=product.slug %}" method="post" enctype="multipart/form-data">
             <section class="product-details-container">
                 <h2>
-                    {{ object.name }}
+                    {{ product.name }}
                 </h2>
 
                 <div class="products">
                     <div class="img-wrapper">
-                        <img src="/media/{{ object.image }}" alt="product-img">
+                        <img src="/media/{{ product.image }}" alt="product-img">
                         <div class="description-wrap">
                             <p class="description">Description:</p>
                             <p>
-                                {{ object.description }}
+                                {{ product.description }}
                             </p>
                         </div>
                     </div>
                     <div class="product-info-wrapper">
-
-                        <div class="radio-btns">
-                            <h2>Select Size</h2>
-
-                            {% for btn in object.SIZE_CHOICES %}
-                                <label class="container">{{ btn }}
-                                    <input type="radio" class="size-select" name="radio" value="{{ btn }}">
-                                    <span class="checkmark"></span>
-                                </label>
-
-                            {% endfor %}
-
-                        </div>
                         <div>
                             <p class="quantity-select">
                                 Quantity:
                             <div class="quantity-wrapper">
                                 <span class="minus">-</span>
-                                <input type="text" name="quantity" value="1" min="1" max="10" step="1" disabled
-                                       id="current-quantity">
+                                <input type="text" name="quantity" value="{{ form.quantity.value|default:1 }}" min="1"
+                                       max="10" step="1" readonly
+                                       class="current-quantity">
                                 <span class="plus">+</span>
+                                <input type="hidden" value="{{ product.price }}" class="single">
                             </div>
                             </p>
 
-                            <p class="price" id="final-price">
-                                {{ object.price|floatformat:2 }}€
+                            <p class="price product-final-price">
+                                Price: {{ product.price|floatformat:2 }}€
                             </p>
 
-                            <ul class="all-sizes-prices">
+                            <ul class="all-sizes-prices single">
                                 <li id="single">
-                                    {{ object.price }}
+                                    {{ product.price }}
                             </ul>
 
                         </div>

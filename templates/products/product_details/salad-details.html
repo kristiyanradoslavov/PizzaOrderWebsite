@@ -1,21 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_section %}
 
     <main>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{% url 'salad_details' slug=product.slug %}" method="post" enctype="multipart/form-data">
             <section class="product-details-container">
                 <h2>
-                    {{ object.name }}
+                    {{ product.name }}
                 </h2>
+
+                {% for error in form.non_field_errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
                 <div class="products">
                     <div class="img-wrapper">
-                        <img src="/media/{{ object.image }}" alt="product-img">
+                        <img src="/media/{{ product.image }}" alt="product-img">
                         <div class="description-wrap">
                             <p class="description">Description:</p>
                             <p>
-                                {{ object.description }}
+                                {{ product.description }}
                             </p>
                         </div>
                     </div>
@@ -24,9 +32,17 @@
                         <div class="radio-btns">
                             <h2>Select Size</h2>
 
-                            {% for btn in object.SIZE_CHOICES %}
-                                <label class="container">{{ btn }}
-                                    <input type="radio" class="size-select" name="radio" value="{{ btn }}">
+                            {% for error in form.size.errors %}
+                                <div class="error-wrapper">
+                                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                                    <span class="register-error">{{ error }}</span>
+                                </div>
+                            {% endfor %}
+
+                            {% for value, label in form.size.field.choices %}
+                                <label class="container">{{ label }}
+                                    <input type="radio" class="size-select" name="{{ form.size.name }}"
+                                           value="{{ value }}">
                                     <span class="checkmark"></span>
                                 </label>
 
@@ -38,22 +54,23 @@
                                 Quantity:
                             <div class="quantity-wrapper">
                                 <span class="minus">-</span>
-                                <input type="text" name="quantity" value="1" min="1" max="10" step="1" disabled
-                                       id="current-quantity">
+                                <input type="text" name="quantity" value="{{ form.quantity.value|default:1 }}" min="1"
+                                       max="10" step="1" readonly
+                                       class="current-quantity">
                                 <span class="plus">+</span>
                             </div>
                             </p>
 
-                            <p class="price" id="final-price">
-                                {{ 0|floatformat:2 }}€
+                            <p class="price product-final-price">
+                                Price: {{ product.price_small|floatformat:2 }}€
                             </p>
 
                             <ul class="all-sizes-prices">
                                 <li id="small">
-                                    {{ object.small_price }}
+                                    {{ product.price_small }}
                                 </li>
                                 <li id="large">
-                                    {{ object.large_price }}
+                                    {{ product.price_large }}
                             </ul>
                         </div>
                     </div>

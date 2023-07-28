@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth import views as auth_views
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic as generic_views
@@ -26,10 +27,25 @@ class RegisterUser(generic_views.CreateView):
 
 class LoginUser(auth_views.LoginView):
     template_name = 'user_authenticate/login-form.html'
+    success_url = reverse_lazy('home_page')
+
+    def get_success_url(self):
+        next_value = self.request.POST.get('next')
+        if next_value:
+            return next_value
+
+        return self.get_redirect_url() or self.get_default_redirect_url()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['next'] = self.request.GET.get('next', '')
+
+        return context
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('home_page')
+            return HttpResponse(self.get_success_url())
         return super().dispatch(request, *args, **kwargs)
 
 

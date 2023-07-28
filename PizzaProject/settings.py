@@ -137,3 +137,7 @@ LOGIN_URL = reverse_lazy('login_user')
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home_page')
+
+STRIPE_PUBLIC_KEY = ''
+STRIPE_SECRET_KEY = ''
+STRIPE_WEBHOOK_SECRET = ''

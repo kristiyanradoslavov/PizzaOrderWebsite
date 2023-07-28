@@ -38,9 +38,10 @@
 .finish-order {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     font-size: 20px;
     min-height: 600px;
+    padding: 30px;
 }
 
 .products-wrapper {
@@ -53,7 +54,9 @@
     min-width: 300px;
     min-height: 500px;
     box-shadow: 2px 2px 20px 5px rgba(0, 0, 0, 0.2);
-    padding: 20px
+    padding: 20px;
+    /*height: 1200px;*/
+
 }
 
 .box-fields {
@@ -65,6 +68,7 @@
 
 .products-wrapper img {
     width: 100px;
+
 }
 
 .selected-product {
@@ -77,21 +81,25 @@
     padding: 10px
 }
 
+
 .selected-product div {
     padding: 5px
 }
 
-.total-price {
-    position: absolute;
-    right: 40px;
-    bottom: 20px;
+.selected-product .product-information {
+    width: 200px;
+}
+
+#total-price {
+    margin-top: 20px;
+    margin-left: 300px;
 }
 
 .payment-information {
     max-width: 200px;
 }
 
-.payment-information label{
+.payment-information label {
     color: black;
 }
 
