@@ -44,20 +44,29 @@
             </div>
         </div>
 
+        <form action="{% url 'create_order' %}" method="POST" class="payment-information box-fields checkout-wrapper">
 
-        <div class="payment-information box-fields">
-            <h2>Payment Type</h2>
-            <label class="container">Pay with cash
-                <input type="radio" class="size-select2" name="radio" value="Small">
-                <span class="checkmark"></span>
-            </label>
+                <h2>Select Size</h2>
 
-            <label class="container">Pay with Credit Card
-                <input type="radio" class="size-select2" name="radio" value="Small">
-                <span class="checkmark"></span>
-            </label>
+                {% for error in form.sizes.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
-        </div>
+                {% for value, label in form.sizes.field.choices %}
+                    <label class="container">{{ label }}
+                        <input type="radio" class="size-select" name="{{ form.sizes.name }}"
+                               value="{{ value }}">
+                        <span class="checkmark"></span>
+                    </label>
+
+                {% endfor %}
+
+            <button type="submit" id="checkout-button" class="btn">Checkout</button>
+            {% csrf_token %}
+        </form>
 
         <div class="address-information box-fields">
             <h2>Address Information</h2>
@@ -71,15 +80,17 @@
             {{ profile_form.phone_number.label }}
             {{ profile_form.phone_number }}
 
+            {{ profile_form.city.label }}
             {{ profile_form.city }}
 
+            {{ profile_form.address.label }}
             {{ profile_form.address }}
         </div>
     </section>
 
-    <div class="checkout-wrapper">
-        <input type="submit" value="Sumbit">
-    </div>
+    {#    <div class="checkout-wrapper">#}
+    {#        <input type="submit" value="Sumbit">#}
+    {#    </div>#}
 
 {% endblock %}
 

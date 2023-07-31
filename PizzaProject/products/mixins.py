@@ -53,6 +53,17 @@ class ProductFormValidationMixin:
         ordered_quantity = form.cleaned_data.get('quantity')
         ordered_size = form.cleaned_data.get('size')
 
+        stripe_price_id = None
+
+        if ordered_size == "Small":
+            stripe_price_id = current_product.stripe_small_price_id
+        elif ordered_size == "Medium":
+            stripe_price_id = current_product.stripe_medium_price_id
+        elif ordered_size == "Large":
+            stripe_price_id = current_product.stripe_large_price_id
+        elif ordered_size == "Extra Large":
+            stripe_price_id = current_product.stripe_extra_large_price_id
+
         if current_product.__class__.__name__ != 'Drink':
             product_image = current_product.image
         else:
@@ -88,6 +99,7 @@ class ProductFormValidationMixin:
                 single_price=current_price,
                 user=self.request.user,
                 image=product_image,
+                price_id=stripe_price_id
             )
 
         if previous_url:

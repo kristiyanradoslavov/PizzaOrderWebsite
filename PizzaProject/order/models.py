@@ -10,6 +10,7 @@ class OrderItem(models.Model):
     NAME_MIN_LEN = 3
     SIZE_MAX_LEN = 20
     SIZE_NIM_LEN = 3
+    PRICE_ID_MAX_LEN = 40
 
     product_name = models.CharField(
         max_length=NAME_MAX_LEN,
@@ -52,6 +53,12 @@ class OrderItem(models.Model):
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,
+        null=False,
+        blank=False,
+    )
+
+    price_id = models.CharField(
+        max_length=PRICE_ID_MAX_LEN,
         null=False,
         blank=False,
     )
