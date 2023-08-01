@@ -53,8 +53,8 @@ class OrderItem(models.Model):
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
 
     price_id = models.CharField(

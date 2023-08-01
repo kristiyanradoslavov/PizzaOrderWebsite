@@ -5,92 +5,134 @@
 {% block main_section %}
 
     <section class="finish-order">
-        <div class="products-wrapper box-fields">
-            <h2>Products in the Cart</h2>
-            {# START FIRST PRODUCT#}
+        <form action="{% url 'create_order' %}" method="POST" class="payment-information checkout-wrapper">
+            {{ form.non_field_errors }}
+            {{ profile_form.non_field_errors }}
 
-            {% for key, value in all_products_dict.items %}
-                <div class="selected-product">
-                    <a href="#">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </a>
-                    <img src='/media/{{ key.image }}' alt="">
-                    <div class="product-information">
-                        <p>{{ key.product_name }}</p>
-                        {% if key.size %}
-                            <p>{{ key.size }}</p>
-                        {% endif %}
-                    </div>
+            <div class="products-wrapper box-fields">
+                <h2>Products in the Cart</h2>
+                {# START FIRST PRODUCT#}
+                {% if all_products_dict %}
+                    <input type="hidden" class="size-select2" name="{{ form.product_items.name }}"
+                           value="{{ form.product_items.value }}">
+                    {% for key, value in all_products_dict.items %}
+                        <div class="selected-product">
+                            <a href="#">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                            <img src='/media/{{ key.image }}' alt="">
+                            <div class="product-information">
+                                <p>{{ key.product_name }}</p>
+                                {% if key.size %}
+                                    <p>{{ key.size }}</p>
+                                {% endif %}
+                            </div>
 
-                    <div>
-                        <div class="quantity-wrapper">
-                            <span class="minus">-</span>
-                            <input type="text" name="quantity" value="{{ key.quantity }}" min="1" max="10" step="1"
-                                   disabled
-                                   class="current-quantity">
-                            <span class="plus">+</span>
-                            <input type="hidden" value="{{ key.single_price }}" class="single">
+                            <div>
+                                <div class="quantity-wrapper">
+                                    <span class="minus">-</span>
+                                    <input type="text" name="quantity" value="{{ key.quantity }}" min="1" max="10"
+                                           step="1"
+                                           disabled
+                                           class="current-quantity">
+                                    <span class="plus">+</span>
+                                    <input type="hidden" value="{{ key.single_price }}" class="single">
+                                </div>
+                                <p class="cart-product-price product-final-price">
+                                    Price: {{ value|floatformat:2 }} €
+                                </p>
+                            </div>
                         </div>
-                        <p class="cart-product-price product-final-price">
-                            Price: {{ value|floatformat:2 }} €
-                        </p>
+
+                    {% endfor %}
+
+                    <div id="total-price">
+                        Total Price: {{ total_price|floatformat:2 }}
                     </div>
-                </div>
-
-            {% endfor %}
-
-            <div id="total-price">
-                Total Price: {{ total_price|floatformat:2 }}
+                {% else %}
+                    {% for error in form.product_items.errors %}
+                        <div class="error-wrapper">
+                            <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                            <span class="register-error">{{ error }}</span>
+                        </div>
+                    {% endfor %}
+                    <h3 class="no-products">You have no products in the cart yet.</h3>
+                {% endif %}
             </div>
-        </div>
 
-        <form action="{% url 'create_order' %}" method="POST" class="payment-information box-fields checkout-wrapper">
+            <div class="payment-select">
+                <h2>Select Payment option</h2>
 
-                <h2>Select Size</h2>
-
-                {% for error in form.sizes.errors %}
+                {% for error in form.payment_options.errors %}
                     <div class="error-wrapper">
                         <img class="close-img" src="{% static 'images/close.png' %}" alt="">
                         <span class="register-error">{{ error }}</span>
                     </div>
                 {% endfor %}
 
-                {% for value, label in form.sizes.field.choices %}
+                {% for value, label in form.payment_options.field.choices %}
                     <label class="container">{{ label }}
-                        <input type="radio" class="size-select" name="{{ form.sizes.name }}"
+                        <input type="radio" class="size-select2" name="{{ form.payment_options.name }}"
                                value="{{ value }}">
                         <span class="checkmark"></span>
                     </label>
 
                 {% endfor %}
+            </div>
 
-            <button type="submit" id="checkout-button" class="btn">Checkout</button>
-            {% csrf_token %}
+            <div class="address-information box-fields">
+                <h2>Address Information</h2>
+
+                {{ profile_form.first_name.label }}
+                {{ profile_form.first_name }}
+                {% for error in profile_form.first_name.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+
+                {{ profile_form.last_name.label }}
+                {{ profile_form.last_name|default:'' }}
+                {% for error in form.last_name.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+
+                {{ profile_form.phone_number.label }}
+                {{ profile_form.phone_number }}
+                {% for error in form.phone_number.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+
+                {{ profile_form.city.label }}
+                {{ profile_form.city }}
+                {% for error in form.city.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+
+                {{ profile_form.address.label }}
+                {{ profile_form.address }}
+                {% for error in form.address.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+                <button type="submit" id="checkout-button" class="btn">Checkout</button>
+                {% csrf_token %}
+            </div>
         </form>
 
-        <div class="address-information box-fields">
-            <h2>Address Information</h2>
-
-            {{ profile_form.first_name.label }}
-            {{ profile_form.first_name }}
-
-            {{ profile_form.last_name.label }}
-            {{ profile_form.last_name }}
-
-            {{ profile_form.phone_number.label }}
-            {{ profile_form.phone_number }}
-
-            {{ profile_form.city.label }}
-            {{ profile_form.city }}
-
-            {{ profile_form.address.label }}
-            {{ profile_form.address }}
-        </div>
     </section>
-
-    {#    <div class="checkout-wrapper">#}
-    {#        <input type="submit" value="Sumbit">#}
-    {#    </div>#}
 
 {% endblock %}
 

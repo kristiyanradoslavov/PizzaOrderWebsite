@@ -1,0 +1,38 @@
+version: '3.4'
+
+services:
+  web:
+    image: ramun3/pizza_order_app
+    build: .
+    command: gunicorn --bind=0.0.0.0:8000 MyPlantApp.wsgi:application
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./envs/.env
+    volumes:
+      - /tmp/my_plant_app/static:/app/static
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: Kristiyan94
+      POSTGRES_USER: ramune
+      POSTGRES_DB: MyplantsDB
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./postgresql:/var/lib/postgresql/data
+  nginx:
+    image: nginx
+    ports:
+      - "81:80"
+      - "443:443"
+    volumes:
+      - /tmp/my_plant_app/static:/home/app/web/staticfiles
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/logs:/var/log/nginx
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+    links:
+      - web
