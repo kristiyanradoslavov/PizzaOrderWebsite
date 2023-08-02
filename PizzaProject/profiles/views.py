@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic as generic_views
 from django.contrib.auth import mixins as auth_mixins, get_user_model
 
+from PizzaProject.order.models import OrderHistory
 from PizzaProject.profiles.forms import ProfileForm
 from PizzaProject.profiles.models import Profile
 
@@ -33,6 +34,6 @@ class ProfileDetails(generic_views.UpdateView):
         return context
 
 
-class Orders(auth_mixins.LoginRequiredMixin, generic_views.TemplateView):
+class Orders(auth_mixins.LoginRequiredMixin, generic_views.DetailView):
     template_name = 'form_templates/order-history.html'
-
+    model = OrderHistory

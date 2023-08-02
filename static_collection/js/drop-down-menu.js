@@ -36,6 +36,7 @@ function calculateProductPrice() {
     let largeImage = document.getElementsByClassName("large-img")[0];
     let selectedSize = null;
     let total_price = document.getElementById('total-price')
+    let deleteItemBtn = document.getElementsByClassName('deleteItemBtn')
 
 
     let prices = {
@@ -58,6 +59,21 @@ function calculateProductPrice() {
         ele[i].addEventListener('click', sizeHandler);
     }
 
+    for (const currentBtn of deleteItemBtn) {
+        currentBtn.addEventListener('click', deleteHandler)
+    }
+
+    function deleteHandler(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        let currentBtn = event.target.parentNode;
+
+        let currentOrderIt = Number(currentBtn.getAttribute('data-item-id'))
+        deleteCartItem(currentOrderIt)
+
+    }
+
     function sizeHandler(event) {
         let currentValue = event.target.value;
         let currentSelectedSize = currentValue.split(' ').join('');
@@ -70,7 +86,6 @@ function calculateProductPrice() {
     }
 
     function priceUpdate(event) {
-        // debugger;
         let current_container = event.target.parentNode;
         let currentQuantity = current_container.querySelector('.current-quantity')
         let singlePrice = current_container.querySelector('.single')
@@ -111,6 +126,12 @@ function calculateProductPrice() {
 
         let quantityNum = Number(currentQuantity.value);
         quantityNum++;
+        let newQuantity = Number(quantityNum);
+        let dbObjectId = Number(current_container.id)
+        if (dbObjectId) {
+            updateCartItemQuantity(dbObjectId, newQuantity)
+        }
+
         currentQuantity.value = quantityNum;
         priceUpdate(event);
 
@@ -119,10 +140,15 @@ function calculateProductPrice() {
     function decreaseQuantity(event) {
         let current_container = event.target.parentNode;
         currentQuantity = current_container.querySelector('.current-quantity')
-
+        let dbObjectId = Number(current_container.id)
         let quantityNum = Number(currentQuantity.value);
         if (quantityNum > 1) {
             quantityNum--;
+            let newQuantity = Number(quantityNum);
+
+            if (dbObjectId) {
+                updateCartItemQuantity(dbObjectId, newQuantity)
+            }
         }
         currentQuantity.value = quantityNum;
         priceUpdate(event)
@@ -130,7 +156,6 @@ function calculateProductPrice() {
 
 
     function updateTotalPrice() {
-        // debugger;
         let all_product_prices = Array.from(document.getElementsByClassName('product-final-price'))
         let new_total_price = 0
         for (const price of all_product_prices) {
@@ -139,6 +164,65 @@ function calculateProductPrice() {
         }
         total_price.textContent = `Total Price: ${new_total_price.toFixed(2)}`;
 
+    }
+
+    function updateCartItemQuantity(itemId, newQuantity) {
+        const formData = new FormData();
+        formData.append('new_quantity', newQuantity);
+        const csrfToken = getCookie('csrftoken');
+
+        fetch(updateApiUrl.replace('0', itemId), {
+            method: 'PUT',
+            body: formData,
+            headers: {
+                'X-CSRFToken': csrfToken,
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Handle response or update the total price
+            })
+            .catch(error => {
+                // Handle errors
+                console.error('Error updating quantity:', error);
+            });
+    }
+
+    async function deleteCartItem(itemId) {
+        const csrfToken = getCookie('csrftoken');
+
+        try {
+            const response = await fetch(deleteApiUrl.replace('0', itemId), {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'Content-Type': 'application/json',
+                },
+            })
+
+            if (response.ok) {
+                location.reload();
+            } else {
+                console.log("Error deleting item:", response.statusText)
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
     }
 }
 

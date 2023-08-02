@@ -6,10 +6,13 @@
         <ul>
             <li>
                 <p>
-                    20.07.2023
+                    {{ object.date_created }}
                 </p>
                 <p>
-                    Some order description
+                    {% for product in object.all %}
+                        {{ product }}
+
+                    {% endfor %}
                 </p>
             </li>
 

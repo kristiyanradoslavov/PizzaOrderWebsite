@@ -53,8 +53,6 @@ class ProductFormValidationMixin:
         ordered_quantity = form.cleaned_data.get('quantity')
         ordered_size = form.cleaned_data.get('size')
 
-        stripe_price_id = None
-
         if ordered_size == "Small":
             stripe_price_id = current_product.stripe_small_price_id
         elif ordered_size == "Medium":
@@ -63,6 +61,8 @@ class ProductFormValidationMixin:
             stripe_price_id = current_product.stripe_large_price_id
         elif ordered_size == "Extra Large":
             stripe_price_id = current_product.stripe_extra_large_price_id
+        else:
+            stripe_price_id = current_product.stripe_single_price_id
 
         if current_product.__class__.__name__ != 'Drink':
             product_image = current_product.image

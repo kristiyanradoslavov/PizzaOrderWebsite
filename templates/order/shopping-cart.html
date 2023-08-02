@@ -17,9 +17,9 @@
                            value="{{ form.product_items.value }}">
                     {% for key, value in all_products_dict.items %}
                         <div class="selected-product">
-                            <a href="#">
+                            <button class="deleteItemBtn" data-item-id="{{ key.id }}">
                                 <i class="fa-solid fa-trash-can"></i>
-                            </a>
+                            </button>
                             <img src='/media/{{ key.image }}' alt="">
                             <div class="product-information">
                                 <p>{{ key.product_name }}</p>
@@ -29,7 +29,7 @@
                             </div>
 
                             <div>
-                                <div class="quantity-wrapper">
+                                <div class="quantity-wrapper" id="{{ key.id }}">
                                     <span class="minus">-</span>
                                     <input type="text" name="quantity" value="{{ key.quantity }}" min="1" max="10"
                                            step="1"
@@ -133,6 +133,11 @@
         </form>
 
     </section>
+
+    <script>
+        let updateApiUrl = "{% url 'update_quantity_api' pk=0 %}";
+        let deleteApiUrl = "{% url 'delete_cart_item' pk=0 %}";
+    </script>
 
 {% endblock %}
 

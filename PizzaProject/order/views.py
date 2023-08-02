@@ -3,11 +3,14 @@ from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.views import generic as generic_views
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.response import Response
+from rest_framework import generics as rest_generic_views, status
 
 from PizzaProject import settings
 from PizzaProject.order.forms import CreateOrderForm
 from PizzaProject.order.models import OrderItem
-from PizzaProject.order.util_functions import clear_order_items
+from PizzaProject.order.serializers import OrderItemSerializer, DeleteItemSerializer
+from PizzaProject.order.util_functions import clear_order_items, create_order_history_item
 from PizzaProject.profiles.forms import ProfileForm
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -41,10 +44,11 @@ class CreateOrder(generic_views.FormView):
         return context
 
     def form_valid(self, form):
-        payment_type = form.cleaned_data['sizes']
+        payment_type = form.cleaned_data['payment_options']
         all_filled_data = form.cleaned_data
 
         if payment_type == "Cash":
+            create_order_history_item(self.request.user.id)
             clear_order_items(self.request.user.id)
             return redirect('successful_payment')
 
@@ -113,3 +117,23 @@ def stripe_webhook(request):
         # fulfill_order(line_items)
 
     return HttpResponse(status=200)
+
+
+class UpdateCartItemAPIView(rest_generic_views.UpdateAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = OrderItemSerializer
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        new_quantity = int(request.data.get('new_quantity'))
+
+        instance.quantity = new_quantity
+        instance.save()
+
+        serializer = OrderItemSerializer(instance)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class DeleteCartItemAPIView(rest_generic_views.DestroyAPIView):
+    queryset = OrderItem.objects.all()
+    serializer_class = DeleteItemSerializer

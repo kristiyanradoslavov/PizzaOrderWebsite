@@ -5,7 +5,7 @@ from django.db import models
 UserModel = get_user_model()
 
 
-class OrderItem(models.Model):
+class BaseOrderModel(models.Model):
     NAME_MAX_LEN = 20
     NAME_MIN_LEN = 3
     SIZE_MAX_LEN = 20
@@ -61,4 +61,26 @@ class OrderItem(models.Model):
         max_length=PRICE_ID_MAX_LEN,
         null=False,
         blank=False,
+    )
+
+    class Meta:
+        abstract = True
+
+
+class OrderItem(BaseOrderModel):
+    pass
+
+
+class OrderHistory(BaseOrderModel):
+    SPECIFIC_ORDER_ID_MAX_LEN = 60
+    date_created = models.DateTimeField(
+        auto_now_add=True,
+        blank=True,
+        null=True,
+    )
+    specific_order_id = models.CharField(
+        max_length=SPECIFIC_ORDER_ID_MAX_LEN,
+        editable=False,
+        null=True,
+        blank=True,
     )

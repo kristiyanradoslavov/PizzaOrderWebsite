@@ -57,6 +57,8 @@ class BaseProduct(models.Model):
 
 
 class Pizza(BaseProduct):
+    STRIPE_PRICE_MAX_LEN = 100
+
     price_small = models.FloatField(
         validators=(
             positive_price,
@@ -90,19 +92,27 @@ class Pizza(BaseProduct):
     )
 
     stripe_small_price_id = models.CharField(
-        max_length=100
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     stripe_medium_price_id = models.CharField(
-        max_length=100
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     stripe_large_price_id = models.CharField(
-        max_length=100
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     stripe_extra_large_price_id = models.CharField(
-        max_length=100
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     image = models.ImageField(
@@ -113,6 +123,8 @@ class Pizza(BaseProduct):
 
 
 class Salad(BaseProduct):
+    STRIPE_PRICE_MAX_LEN = 100
+
     price_small = models.FloatField(
         validators=(
             positive_price,
@@ -127,6 +139,18 @@ class Salad(BaseProduct):
         ),
         null=False,
         blank=False,
+    )
+
+    stripe_small_price_id = models.CharField(
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
+    )
+
+    stripe_large_price_id = models.CharField(
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     image = models.ImageField(
@@ -137,12 +161,20 @@ class Salad(BaseProduct):
 
 
 class Desert(BaseProduct):
+    STRIPE_PRICE_MAX_LEN = 100
+
     price = models.FloatField(
         validators=(
             positive_price,
         ),
         blank=False,
         null=False,
+    )
+
+    stripe_single_price_id = models.CharField(
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
     )
 
     image = models.ImageField(
@@ -153,6 +185,8 @@ class Desert(BaseProduct):
 
 
 class Drink(BaseProduct):
+    STRIPE_PRICE_MAX_LEN = 100
+
     price_small = models.FloatField(
         validators=(
             positive_price,
@@ -169,10 +203,22 @@ class Drink(BaseProduct):
         blank=False,
     )
 
+    stripe_small_price_id = models.CharField(
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
+    )
+
+    stripe_large_price_id = models.CharField(
+        max_length=STRIPE_PRICE_MAX_LEN,
+        null=True,
+        blank=True,
+    )
+
     small_image = models.ImageField(
         null=False,
         blank=False,
-        upload_to='images/products/images'
+        upload_to='images/products/drink'
     )
 
     large_image = models.ImageField(
