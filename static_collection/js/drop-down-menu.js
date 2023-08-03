@@ -37,6 +37,7 @@ function calculateProductPrice() {
     let selectedSize = null;
     let total_price = document.getElementById('total-price')
     let deleteItemBtn = document.getElementsByClassName('deleteItemBtn')
+    let repeatBtn = document.getElementsByClassName('repeat-order')
 
 
     let prices = {
@@ -61,6 +62,16 @@ function calculateProductPrice() {
 
     for (const currentBtn of deleteItemBtn) {
         currentBtn.addEventListener('click', deleteHandler)
+    }
+
+    for (const currBtn of repeatBtn) {
+        currBtn.addEventListener('click', repeatHandler)
+    }
+
+    function repeatHandler(event) {
+        let currentBtn = event.target.parentNode.parentNode
+        let orderId = currentBtn.id
+        repeatOrder(orderId)
     }
 
     function deleteHandler(event) {
@@ -201,10 +212,38 @@ function calculateProductPrice() {
             })
 
             if (response.ok) {
-                location.reload();
+                const itemElement = document.querySelector(`[data-item-id="${itemId}"]`).parentNode;
+                if (itemElement) {
+                    itemElement.remove();
+                    await updateTotalPrice()
+                }
             } else {
                 console.log("Error deleting item:", response.statusText)
             }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function repeatOrder(orderId) {
+        const csrfToken = getCookie('csrftoken');
+
+        try {
+            const response = await fetch(repeatApiUrl, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    specific_order_id: orderId
+                }),
+            })
+
+            if (!response.ok) {
+                console.log("Error deleting item:", response.statusText)
+            }
+
         } catch (error) {
             console.error('Error:', error);
         }

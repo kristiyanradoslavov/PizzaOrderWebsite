@@ -1,3 +1,5 @@
+{% load static %}
+
 <section class="order">
     <h1 class="logo-wrapper">
 
@@ -12,14 +14,14 @@
 
         {% if request.user.is_authenticated %}
             <a href="{% url 'create_order' %}" class="shopping-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <img src="{% static 'images/fast-delivery.png' %}" alt="delivery-img">
                 <div>Cart</div>
             </a>
         {% endif %}
 
         <div class="btn-wrapper">
             <button class="profile-btn">
-                <i class="fa-solid fa-user"></i>
+                <img src="{% static 'images/profile.png' %}" alt="profile-icon">
             </button>
 
             <div class="drop-down-menu">

@@ -6,7 +6,7 @@
 
 /* PRODUCT ELEMENTS START */
 .product-menu-section {
-    margin: 0 60px;
+    /*margin: 0 60px;*/
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -16,14 +16,23 @@
 
 .product-element {
     display: flex;
+    gap: 5px;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 300px;
+    background-color: rgb(227, 224, 224);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .product-element img {
     width: 200px;
+}
+
+.product-element p {
+    font-size: 16px;
+    font-style: italic;
 }
 
 .product-menu-section div {
@@ -119,6 +128,23 @@
 
 .payment-information label {
     color: black;
+}
+
+.deleteItemBtn {
+    width: 50px;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+
+.deleteItemBtn:hover {
+    box-shadow: 0 0 15px black;
+    transition: 0.5s;
+    transform: scale(1.025);
+}
+
+.deleteItemBtn img {
+    width: 100%;
 }
 
 /*.checkout-wrapper {*/

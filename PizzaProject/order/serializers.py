@@ -17,3 +17,7 @@ class OrderItemSerializer(BaseItemSerializer):
 
 class DeleteItemSerializer(BaseItemSerializer):
     pass
+
+
+class CreateItemSerializer(BaseItemSerializer):
+    pass

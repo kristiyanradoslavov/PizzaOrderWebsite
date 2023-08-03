@@ -1,39 +1,48 @@
 {% extends 'base-profile.html' %}
+{% load static %}
 
 {% block profile_main %}
 
     <section class="order-history">
         <ul>
-            <li>
-                <p>
-                    {{ object.date_created }}
-                </p>
-                <p>
-                    {% for product in object.all %}
-                        {{ product }}
 
-                    {% endfor %}
-                </p>
-            </li>
+            {% for orders in grouped_orders %}
 
-            <li>
-                <p>
-                    20.07.2023
-                </p>
-                <p>
-                    Some order description
-                </p>
-            </li>
+                <li class="specific-order" id="{{ orders.0.specific_order_id }}">
+                    <div class="product_wrapper">
+                        <h2>{{ orders.0.date_created }}</h2>
+                        {% for order in orders %}
+                            <div>
+                                {{ order.size }} {{ order.product_name }} - {{ order.quantity }}
+                            </div>
 
-            <li>
-                <p>
-                    20.07.2023
-                </p>
-                <p>
-                    Some order description
-                </p>
-            </li>
+                        {% endfor %}
+                    </div>
+
+                    <button class="repeat-order">
+                        <img src="{% static 'images/repeat_order.jpg' %}" alt="repeat-order">
+                    </button>
+                </li>
+            {% endfor %}
         </ul>
+
+        <div class="pagination">
+            {% if page_number > 1 %}
+                <a href="?page={{ page_number|add:"-1" }}">&lt; previous</a>
+            {% endif %}
+
+            <span class="current-page">
+            Page {{ page_number }} of {{ total_pages }}
+            </span>
+
+            {% if page_number < total_pages %}
+                <a href="?page={{ page_number|add:"1" }}">next &gt;</a>
+            {% endif %}
+        </div>
     </section>
+
+    <script>
+        let repeatApiUrl = "{% url 'repeat_order_api' %}";
+    </script>
 
 {% endblock %}

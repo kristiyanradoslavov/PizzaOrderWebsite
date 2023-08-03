@@ -138,7 +138,7 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.environ.get('STATIC_ROOT', BASE_DIR / 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.environ.get('MEDIA_ROOT', BASE_DIR / 'media_files')
+MEDIA_ROOT = os.environ.get('MEDIA_ROOT', BASE_DIR / 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -152,6 +152,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('home_page')
 
-STRIPE_PUBLIC_KEY = 'pk_test_51NY6aHKQqkQcvlnMu75M2b1HnPp6MtIcicu8osY9B7JXNDNdi1vpiTgt8NR7xHeMxPvk2jT27NIb6aZfuVkbsu4a00EGIsLzle'
-STRIPE_SECRET_KEY = 'sk_test_51NY6aHKQqkQcvlnMis6vjP5eLvtBq8aXwOxgemTHK3AcyQ3dlNYDmavTKWVJBcxx3PnLbmfFWZaKQ1tu4RPFTDV700062vMuiP'
-STRIPE_WEBHOOK_SECRET = 'whsec_b198ac12a9578de4469e8e6979bc5b6d837a07406a321cfc6042f137a4d9e6b4'
+STRIPE_PUBLIC_KEY = os.environ.get("SECRET_KEY", None)
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", None)
+STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", None)

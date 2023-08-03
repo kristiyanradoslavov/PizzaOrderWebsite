@@ -139,9 +139,10 @@ header .shopping-cart {
     margin: 0px;
 }
 
-header .shopping-cart i,
-header .phone-number i {
+header .shopping-cart img,
+header .phone-number img {
     font-size: 22px;
+    width: 40px;
 }
 
 header .order-wrapper a {
@@ -152,18 +153,24 @@ header .order-wrapper a {
 }
 
 header .order-wrapper .shopping-cart:hover,
-header .order-wrapper .phone-number:hover {
+header .order-wrapper .phone-number:hover,
+.shopping-cart:hover,
+.profile-btn:hover {
     box-shadow: 0 0 15px black;
     transition: 0.5s;
     transform: scale(1.025);
 }
 
 header .profile-btn {
-    border: 1px solid black;
     border-radius: 50%;
     width: 45px;
     height: 45px;
     cursor: pointer;
+    margin-left: 10px;
+}
+
+header .profile-btn img {
+    width: 100%;
 }
 
 header .drop-down-menu ul {
@@ -224,16 +231,19 @@ header .drop-down-menu ul li a {
     margin: 0px;
 }
 
+.menu-nav li a img {
+    width: 50px;
+    padding: 4px;
+}
+
 .menu-nav li {
     margin: 20px;
     width: 120px;
-    /* height:120px; */
+    border-radius: 8px;
 }
 
 .menu-nav li:hover {
-    /*box-shadow: 0 0 0 1px black;*/
     color: black;
-    transform: scale(1.025);
     box-shadow: 0 0 5px black;
     transition: 0.5s;
     transform: scale(1.025);
@@ -245,12 +255,17 @@ header .drop-down-menu ul li a {
 /* HEADER SECTION END */
 
 /* MAIN SECTION START */
+
+.products-main-section {
+    background-size: cover;
+    background-position: center;
+}
+
 main {
     margin-top: 20px;
 }
 
 main .main-pizza-section {
-    background-image: url('static_collection/images/main-piza.jpg');
     background-size: cover;
     background-position: center;
     height: 800px;
@@ -375,19 +390,26 @@ footer .phone a div {
 
 .facebook a:hover {
     color: #4267B2;
+    transition: 0.5s;
+
 }
 
 .twitter a:hover {
     color: #1DA1F2;
+    transition: 0.5s;
 }
 
 .instagram a:hover {
+    transition: 0.5s;
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     color: white;
+
 }
 
 .youtube a:hover {
     color: #d1200c;
+    transition: 0.5s;
+
 }
 
 /* FOOTER SECTION END */
