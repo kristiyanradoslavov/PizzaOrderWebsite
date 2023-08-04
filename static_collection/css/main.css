@@ -281,32 +281,23 @@ main .main-pizza {
     font-weight: 400;
 }
 
-main .pizza-list img {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-}
-
 main .pizza-list {
-    display: flex;
-    justify-content: center;
-    background-color: var(--grey-home);
+    min-height: 500px;
     margin-bottom: 20px;
     margin-top: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-main .pizza-list div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+main .first {
+    background-image: url("1-banner-min.jpg");
 }
 
-main .pizza-list div p {
-    font-family: 'Nothing You Could Do';
-    font-size: 22px;
+main .second {
+    background-image: url("2-banner.jpg");
 }
+
 
 main .location-information {
     display: flex;
@@ -337,6 +328,37 @@ main .contacts div {
 
 main .contacts div i {
     font-size: 50px;
+}
+
+.ele-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 250px;
+    gap: 10px;
+
+}
+
+#register-page {
+    display: flex;
+    margin: auto;
+    width: 550px;
+    height: auto;
+    background: grey;
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+    border: 3px solid #6e8e4626;
+    margin-top: 20px;
+}
+
+.other-link {
+    font-size: 16px;
+    font-style: italic;
+}
+
+.other-link  a{
+    color: lightcoral;
 }
 
 /* MAIN SECTION END */

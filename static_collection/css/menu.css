@@ -5,6 +5,21 @@
 }
 
 /* PRODUCT ELEMENTS START */
+.products-pizza-section {
+    background-image: url("../images/pizza-bg.jpg");
+    background-size: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.products-salad-section {
+    background-image: url("../images/salad-bg.jpg");
+    background-size: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+}
+
 .product-menu-section {
     /*margin: 0 60px;*/
     display: flex;
@@ -28,6 +43,8 @@
 
 .product-element img {
     width: 200px;
+    height: 60%;
+    object-fit: contain;
 }
 
 .product-element p {
@@ -43,15 +60,6 @@
 /* PRODUCT ELEMENT END */
 
 /*CHECKOUT SECTION START*/
-
-/*.finish-order {*/
-/*    display: flex;*/
-/*    justify-content: space-evenly;*/
-/*    align-items: flex-start;*/
-/*    font-size: 20px;*/
-/*    min-height: 600px;*/
-/*    padding: 30px;*/
-/*}*/
 
 .products-wrapper {
     position: relative;
@@ -71,9 +79,11 @@
 .box-fields,
 .payment-select {
     min-width: 500px;
-    min-height: 500px;
+    min-height: 580px;
     box-shadow: 2px 2px 20px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    position: relative;
+
 }
 
 
@@ -117,13 +127,13 @@
 }
 
 .payment-information {
-    /*max-width: 200px;*/
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
     font-size: 20px;
     min-height: 600px;
     padding: 30px;
+    flex-wrap: wrap;
 }
 
 .payment-information label {
@@ -147,13 +157,11 @@
     width: 100%;
 }
 
-/*.checkout-wrapper {*/
-/*    position: absolute;*/
-/*    right: 200px;*/
-/*}*/
-
-/*.checkout-wrapper button {*/
-/*    width: 200px;*/
-/*}*/
+#checkout-button {
+    position: absolute;
+    width: 200px;
+    bottom: 30px;
+    right: 20px;
+}
 
 /*CHECKOUT SECTION END*/

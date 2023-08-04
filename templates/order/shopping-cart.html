@@ -60,26 +60,6 @@
                 {% endif %}
             </div>
 
-            <div class="payment-select">
-                <h2>Select Payment option</h2>
-
-                {% for error in form.payment_options.errors %}
-                    <div class="error-wrapper">
-                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
-                        <span class="register-error">{{ error }}</span>
-                    </div>
-                {% endfor %}
-
-                {% for value, label in form.payment_options.field.choices %}
-                    <label class="container">{{ label }}
-                        <input type="radio" class="size-select2" name="{{ form.payment_options.name }}"
-                               value="{{ value }}">
-                        <span class="checkmark"></span>
-                    </label>
-
-                {% endfor %}
-            </div>
-
             <div class="address-information box-fields">
                 <h2>Address Information</h2>
 
@@ -127,8 +107,28 @@
                         <span class="register-error">{{ error }}</span>
                     </div>
                 {% endfor %}
-                <button type="submit" id="checkout-button" class="btn">Checkout</button>
                 {% csrf_token %}
+            </div>
+
+            <div class="payment-select">
+                <h2>Select Payment option</h2>
+
+                {% for error in form.payment_options.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
+
+                {% for value, label in form.payment_options.field.choices %}
+                    <label class="container">{{ label }}
+                        <input type="radio" class="size-select2" name="{{ form.payment_options.name }}"
+                               value="{{ value }}">
+                        <span class="checkmark"></span>
+                    </label>
+
+                {% endfor %}
+                <button type="submit" id="checkout-button" class="btn">Checkout</button>
             </div>
         </form>
 

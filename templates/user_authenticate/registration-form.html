@@ -3,44 +3,50 @@
 
 
 {% block profile_main %}
+    <section class="ele-wrapper">
+        <form id="register-page" method="post" action="{% url 'register_user' %}">
+            <div class="wrap-box">
+                <h1>Create Profile</h1>
+                {{ form.non_field_errors }}
 
-    <form id="register-page" method="post" action="{% url 'register_user' %}">
-        <div class="wrap-box">
-            <h1>Create Profile</h1>
-            {{ form.non_field_errors }}
+                <label for="email">Email:</label>
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
-            <label for="email">Email:</label>
-            {{ form.email }}
-            {% for error in form.email.errors %}
-                <div class="error-wrapper">
-                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
-                    <span class="register-error">{{ error }}</span>
-                </div>
-            {% endfor %}
+                <label for="password">Password:</label>
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
-            <label for="password">Password:</label>
-            {{ form.password1 }}
-            {% for error in form.password1.errors %}
-                <div class="error-wrapper">
-                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
-                    <span class="register-error">{{ error }}</span>
-                </div>
-            {% endfor %}
+                <label for="repeat password">Repeat password:</label>
+                {{ form.password2 }}
 
-            <label for="repeat password">Repeat password:</label>
-            {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                    <div class="error-wrapper">
+                        <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                        <span class="register-error">{{ error }}</span>
+                    </div>
+                {% endfor %}
 
-            {% for error in form.password2.errors %}
-                <div class="error-wrapper">
-                    <img class="close-img" src="{% static 'images/close.png' %}" alt="">
-                    <span class="register-error">{{ error }}</span>
-                </div>
-            {% endfor %}
+                <input class="btn submit" type="submit" value="Register Profile">
+                {% csrf_token %}
 
-            <input class="btn submit" type="submit" value="Register Profile">
-            {% csrf_token %}
-
+            </div>
+        </form>
+        <div class="other-link">
+            Already have an account ? <a href="{% url 'login_user' %}">Log in</a>
         </div>
-    </form>
+    </section>
+
+
 
 {% endblock %}

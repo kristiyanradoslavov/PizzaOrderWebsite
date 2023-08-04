@@ -3,14 +3,13 @@
 
 {% block main_section %}
 
-    <main class="products-main-section"
-          style="background-image: url('{% static 'images/wooden-natural-floor-decoration-concept.jpg' %}')">
+    <main class="products-pizza-section">
         <!-- First Pizza Element -->
         <section class="product-menu-section">
             {% for pizza in object_list %}
                 <div>
                     <div class="product-element">
-                        <img src="/media/{{ pizza.image }}" alt="pizza-img">
+                        <img src="{{ pizza.image.url }}" alt="pizza-img">
                         <p>{{ pizza.name }}</p>
                         <p>{{ pizza.description|truncatechars:50 }}</p>
                         <a href="{% url 'pizza_details' slug=pizza.slug %}" class="shopping-cart">Details</a>

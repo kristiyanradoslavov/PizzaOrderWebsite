@@ -3,18 +3,20 @@
 
 {% block main_section %}
 
-    <main>
+    <main class="products-salad-section">
         <!-- First Pizza Element -->
-        {% for salad in object_list %}
-            <section class="product-menu-section">
-                <div class="product-element">
-                    <img src="/media/{{ salad.image }}" alt="salad-img">
-                    <p>{{ salad.name }}</p>
-                    <p>{{ salad.description|truncatechars:50 }}</p>
-                    <a href="{% url 'salad_details' slug=salad.slug %}" class="shopping-cart">Details</a>
+        <section class="product-menu-section">
+            {% for salad in object_list %}
+                <div>
+                    <div class="product-element">
+                        <img src="{{ salad.image.url }}" alt="salad-img">
+                        <p>{{ salad.name }}</p>
+                        <p>{{ salad.description|truncatechars:50 }}</p>
+                        <a href="{% url 'salad_details' slug=salad.slug %}" class="shopping-cart">Details</a>
+                    </div>
                 </div>
-            </section>
-        {% endfor %}
+            {% endfor %}
+        </section>
     </main>
 
 {% endblock %}
