@@ -63,7 +63,7 @@
             <div class="address-information box-fields">
                 <h2>Address Information</h2>
 
-                {{ profile_form.first_name.label }}
+                <label for="first_name">{{ profile_form.first_name.label }}</label>
                 {{ profile_form.first_name }}
                 {% for error in profile_form.first_name.errors %}
                     <div class="error-wrapper">
@@ -72,7 +72,7 @@
                     </div>
                 {% endfor %}
 
-                {{ profile_form.last_name.label }}
+                <label for="last_name">{{ profile_form.last_name.label }}</label>
                 {{ profile_form.last_name|default:'' }}
                 {% for error in form.last_name.errors %}
                     <div class="error-wrapper">
@@ -81,7 +81,7 @@
                     </div>
                 {% endfor %}
 
-                {{ profile_form.phone_number.label }}
+                <label for="phone_number">{{ profile_form.phone_number.label }}</label>
                 {{ profile_form.phone_number }}
                 {% for error in form.phone_number.errors %}
                     <div class="error-wrapper">
@@ -90,7 +90,7 @@
                     </div>
                 {% endfor %}
 
-                {{ profile_form.city.label }}
+                <label for="city">{{ profile_form.city.label }}</label>
                 {{ profile_form.city }}
                 {% for error in form.city.errors %}
                     <div class="error-wrapper">
@@ -99,7 +99,7 @@
                     </div>
                 {% endfor %}
 
-                {{ profile_form.address.label }}
+                <label for="address">{{ profile_form.address.label }}</label>
                 {{ profile_form.address }}
                 {% for error in form.address.errors %}
                     <div class="error-wrapper">
@@ -128,7 +128,7 @@
                     </label>
 
                 {% endfor %}
-                <button type="submit" id="checkout-button" class="btn">Checkout</button>
+                <button type="submit" id="checkout-button" class="btn">Order</button>
             </div>
         </form>
 

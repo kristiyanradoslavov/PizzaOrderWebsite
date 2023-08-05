@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_section %}
 
 
-    <section>
+    <section class="successful-payment">
+        <img src="{% static 'images/Tick.png' %}" alt="tick-img">
         <h2>
-            The payment is successful
+            The Order was placed successfully.
         </h2>
+
+        <p>
+            You can expect us at your door.
+        </p>
+
+        <p>
+            Check your email for more information about your order.
+        </p>
+
+        <p>
+            Thank you for choosing Mamma Mia Pizzeria.
+        </p>
+
+        <a class="hover-a" href="{% url 'home_page' %}">Home page</a>
     </section>
 
 

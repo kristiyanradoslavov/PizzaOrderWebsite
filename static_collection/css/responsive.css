@@ -163,8 +163,480 @@
     }
 
     /*PROFILE MEDIA END*/
+    /*HOME PAGE START*/
+    main .pizza-list {
+        min-height: unset;
+        height: 260px;
+        background-size: cover;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    /*HOME PAGE END*/
 }
 
 @media (min-width: 300px) and  (max-width: 800px) {
+    header {
+        height: 150px;
+    }
 
+    header .order {
+        padding: 0px;
+    }
+
+    .phone-number, .shopping-cart {
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    header .shopping-cart img, header .phone-number img {
+        font-size: 14px;
+        width: 28px;
+    }
+
+    header .profile-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    header .logo-wrapper {
+        width: 0px;
+    }
+
+    header .order {
+        justify-content: flex-start;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    header .order-wrapper a div {
+        width: 0px;
+        display: none;
+    }
+
+    header .order-wrapper a {
+        justify-content: center;
+    }
+
+    header .logo-wrapper a {
+        width: 0px;
+        display: none;
+    }
+
+    h1 {
+        padding: 0px;
+        position: relative;
+    }
+
+    .menu-nav {
+        justify-content: space-evenly;
+        margin: 0px;
+        gap: 10px;
+    }
+
+    .menu-nav p {
+        font-size: 14px;
+    }
+
+    .btn-wrapper {
+        position: absolute;
+        right: 20px;
+    }
+
+
+    .menu-nav li {
+        width: 40px;
+        gap: 10px;
+        margin: 0px;
+
+    }
+
+    /*SHOPPING CART MEDIA QUERIES START*/
+    .box-fields, .payment-select {
+        min-width: 300px;
+    }
+
+    .address-information input,
+    .address-information label {
+        font-size: 12px;
+    }
+
+    .checkout-wrapper div h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .checkout-wrapper p,
+    .checkout-wrapper div,
+    .checkout-wrapper span,
+    .checkout-wrapper input,
+    .checkout-wrapper label {
+        font-size: 16px;
+    }
+
+    .quantity-wrapper span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .payment-information {
+        gap: 10px;
+        align-items: center;
+        flex-direction: column;
+        padding: 0px;
+        margin-top: 20px;
+    }
+
+    .payment-information > div {
+        width: 100px;
+    }
+
+    .selected-product {
+        width: 100%;
+        padding: 10px 0px;
+    }
+
+    .selected-product .product-information {
+        width: 100px;
+    }
+
+    .payment-select {
+        /*height: 140px;*/
+        min-height: 280px;
+    }
+
+    #checkout-button {
+        width: 140px;
+        height: 50px;
+        right: 50%;
+        transform: translate(50%);
+    }
+
+    .products-wrapper .selected-product .cart-product-price {
+        width: 100px;
+        margin-left: auto;
+    }
+
+    .deleteItemBtn {
+        width: 20px;
+    }
+
+    #total-price {
+        margin: 0px;
+    }
+
+    .selected-product {
+        flex-direction: column;
+    }
+
+    /*SHOPPING CART MEDIA QUERIES START*/
+    /*PRODUCTS MEDIA START*/
+    .product-details-container {
+        width: 300px;
+        height: 860px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+    .products {
+        margin: 0px;
+    }
+
+    .radio-btns h2 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .radio-btns {
+        margin-bottom: 0px;
+    }
+
+    .quantity-select {
+        margin-top: 30px;
+    }
+
+    .quantity-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .product-final-price {
+        font-size: 20px;
+        text-align: right;
+    }
+
+    .btn-wrap {
+        justify-content: center;
+        margin: auto;
+    }
+
+    .btn-wrap input {
+        width: 180px;
+    }
+
+    .product-details-container img {
+        width: 250px;
+        max-height: 250px;
+    }
+
+    .radio-btns label {
+        font-size: 16px;
+    }
+
+    .description-wrap p {
+        font-size: 14px;
+    }
+
+
+    .products {
+        flex-direction: column;
+    }
+
+    /*PRODUCTS MEDIA END*/
+    /*PROFILE MEDIA START*/
+    .profile-details {
+        padding: 0px;
+        min-width: 300px;
+        max-width: 500px;
+        width: unset;
+        margin: 10px;
+    }
+
+    .profile-wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .profile-navigation ul {
+        width: 300px;
+    }
+
+    .profile-navigation ul li a {
+        font-size: 14px;
+    }
+
+    .profile-details #register-page {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .profile-details #register-page .image {
+        justify-content: center;
+        align-content: center;
+        width: 100%;
+    }
+
+    .name-wrapper, .contact-wrapper {
+        gap: 10px;
+    }
+
+    .profile-details h1 {
+        font-size: 14px;
+    }
+
+    .wrap-box {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .wrap-box label,
+    .wrap-box input {
+        font-size: 10px;
+        /*width: 100px;*/
+    }
+
+    .profile-header {
+        height: 80px;
+    }
+
+    main {
+        margin-top: 5px;
+    }
+
+    .profile-navigation {
+        margin-bottom: 20px;
+    }
+
+    .wrap-box .btn {
+        margin-bottom: 20px;
+    }
+
+    .form-wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #change-password {
+        min-width: 300px;
+        max-width: 500px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .product_wrapper {
+        max-height: unset;
+    }
+
+    .repeat-order {
+        width: 50px;
+    }
+
+    .product_wrapper h2,
+    .product_wrapper div {
+        font-size: 14px;
+    }
+
+    .product_wrapper h2 {
+        padding-top: 0px;
+        padding-bottom: 10px;
+        text-decoration: underline;
+    }
+
+    .order-history .specific-order {
+        width: unset;
+    }
+
+    .delete-form-wrapper,
+    .confirm-delete-form,
+    .ele-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 350px;
+    }
+
+    #delete-profile-request,
+    #delete-profile-confirm,
+    .ele-wrapper #register-page {
+        min-width: 300px;
+        max-width: 500px;
+        margin: 10px;
+        font-size: 16px;
+    }
+
+    .ele-wrapper #register-page {
+        width: 100%;
+    }
+
+    .ele-wrapper {
+        padding: 10px;
+    }
+
+    #register-page .btn {
+        width: 70%;
+    }
+
+
+    #delete-profile-confirm h1 {
+        font-size: 18px;
+    }
+
+    #delete-profile-confirm p {
+        font-size: 14px;
+    }
+
+
+    /*PROFILE MEDIA END*/
+    /* HOME PAGE MEDIA START*/
+    main .main-pizza {
+        left: 20px;
+        font-size: 18px;
+        width: 100px;
+    }
+
+    .location-information {
+        flex-direction: column;
+    }
+
+    main .map-img {
+        width: 100%;
+    }
+
+    main .main-pizza-section {
+        height: 400px;
+    }
+
+    main .pizza-list {
+        min-height: unset;
+        height: 140px;
+        background-size: cover;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    main .location-information {
+        margin-top: 10px;
+    }
+
+    main .contacts div i {
+        font-size: 30px;
+    }
+
+    main .contacts {
+        margin: auto;
+    }
+
+
+    /* HOME PAGE MEDIA END*/
+    /*LOGIN START*/
+    /*LOGIN END*/
+    /*FOOTER MEDIA START*/
+    footer section ul {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .usefull-links {
+        margin: 10px 10px;
+    }
+
+    .usefull-links ul {
+        height: 40px;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .usefull-links ul li a {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    footer section ul li {
+        padding: 0px;
+        text-align: center;
+    }
+
+    footer section ul li {
+        font-size: 12px;
+    }
+
+    footer section .social a {
+        font-size: 18px;
+    }
+
+    .social-media ul {
+        gap: 5px;
+    }
+
+    .phone a div {
+        width: 0px;
+        display: none;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+
+    /*FOOTER MEDIA END*/
 }

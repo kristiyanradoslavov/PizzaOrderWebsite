@@ -71,6 +71,8 @@ function calculateProductPrice() {
     function repeatHandler(event) {
         let currentBtn = event.target.parentNode.parentNode
         let orderId = currentBtn.id
+        let currentItem = currentBtn.getElementsByClassName('cart-item')[0]
+        currentItem.textContent = "Repeated"
         repeatOrder(orderId)
     }
 

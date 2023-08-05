@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block main_section %}
 
 
-    <section>
+    <section class="failed-payment">
+        <img src="{% static 'images/close.png' %}" alt="tick-img">
         <h2>
-            Failed !!!!!!!!!!!!!!!111!!!
+            There was a problem with the payment.
         </h2>
+
+        <p>
+            The order is unsuccessful, please try again.
+        </p>
+
+        <p>
+            If you are having trouble ordering you can contact us at <a class="hover-a" href="">+4567755775</a>
+        </p>
+        <a class="hover-a" href="{% url 'create_order' %}">Back to the shopping cart</a>
     </section>
 
 

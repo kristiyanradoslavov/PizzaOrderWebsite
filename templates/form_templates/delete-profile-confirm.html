@@ -2,7 +2,7 @@
 
 {% block profile_main %}
 
-    <section>
+    <section class="confirm-delete-form">
         <form id="delete-profile-confirm" method="post" action="{% url 'delete_confirm' request.user.pk %}">
             <div class="wrap-box">
                 <h1>Delete Confirmation</h1>

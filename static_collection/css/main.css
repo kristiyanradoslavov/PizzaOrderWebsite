@@ -150,7 +150,9 @@ header .order-wrapper a {
     justify-content: space-between;
     align-items: center;
     padding: 10px 18px;
+    position: relative;
 }
+
 
 header .order-wrapper .shopping-cart:hover,
 header .order-wrapper .phone-number:hover,
@@ -357,9 +359,40 @@ main .contacts div i {
     font-style: italic;
 }
 
-.other-link  a{
+.other-link a {
     color: lightcoral;
 }
+
+
+.successful-payment,
+.failed-payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 300px;
+    font-size: 16px;
+    gap: 10px;
+    min-height: 20vw;
+}
+
+.successful-payment img,
+.failed-payment img {
+    width: 100px;
+}
+
+.hover-a {
+    text-decoration: underline 0.15em rgba(255, 255, 255, 0);
+    transition: text-decoration-color 400ms;
+    padding: 10px;
+}
+
+
+.hover-a:hover {
+    text-decoration-color: rgb(14, 14, 14);
+
+}
+
 
 /* MAIN SECTION END */
 
@@ -433,5 +466,12 @@ footer .phone a div {
     transition: 0.5s;
 
 }
+
+
+/*
+
+
+
+*/
 
 /* FOOTER SECTION END */

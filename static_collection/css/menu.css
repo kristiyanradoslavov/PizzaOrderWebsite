@@ -136,6 +136,10 @@
     flex-wrap: wrap;
 }
 
+.payment-information > div {
+    border-radius: 8px;
+}
+
 .payment-information label {
     color: black;
 }
