@@ -9,7 +9,7 @@ from rest_framework import generics as rest_generic_views, status
 from PizzaProject import settings
 from PizzaProject.order.forms import CreateOrderForm
 from PizzaProject.order.models import OrderItem
-from PizzaProject.order.serializers import OrderItemSerializer, DeleteItemSerializer
+from PizzaProject.order.serializers import OrderItemSerializer, DeleteItemSerializer, GetItemsSerializer
 from PizzaProject.order.util_functions import clear_order_items, create_order_history_item
 from PizzaProject.profiles.forms import ProfileForm
 
@@ -137,3 +137,17 @@ class UpdateCartItemAPIView(rest_generic_views.UpdateAPIView):
 class DeleteCartItemAPIView(rest_generic_views.DestroyAPIView):
     queryset = OrderItem.objects.all()
     serializer_class = DeleteItemSerializer
+
+
+class GetCartQuantityAPIView(rest_generic_views.ListAPIView):
+    serializer_class = GetItemsSerializer
+
+    def get_queryset(self):
+        user_id = self.request.user.id
+
+        try:
+            cart = OrderItem.objects.filter(user_id=user_id).all()
+            return cart
+
+        except OrderItem.DoesNotExist:
+            return OrderItem.objects.none()

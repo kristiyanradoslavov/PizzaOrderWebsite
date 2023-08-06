@@ -74,6 +74,9 @@ function calculateProductPrice() {
         let currentItem = currentBtn.getElementsByClassName('cart-item')[0]
         currentItem.textContent = "Repeated"
         repeatOrder(orderId)
+        debugger;
+        getItems()
+
     }
 
     function deleteHandler(event) {
@@ -218,6 +221,7 @@ function calculateProductPrice() {
                 if (itemElement) {
                     itemElement.remove();
                     await updateTotalPrice()
+                    await getItems()
                 }
             } else {
                 console.log("Error deleting item:", response.statusText)
@@ -242,8 +246,29 @@ function calculateProductPrice() {
                 }),
             })
 
-            if (!response.ok) {
+            if (response.ok) {
+                await getItems()
+            } else {
                 console.log("Error deleting item:", response.statusText)
+            }
+
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    async function getItems() {
+        let currentItemsCounter = document.getElementsByClassName('cart')[0]
+
+        try {
+            const response = await fetch(getItemsAPI, {
+                method: 'GET',
+            })
+
+            if (response.ok) {
+                let responseData = await response.json()
+                let cartItemCount = responseData.length
+                currentItemsCounter.textContent = cartItemCount
             }
 
         } catch (error) {

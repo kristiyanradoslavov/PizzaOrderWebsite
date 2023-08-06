@@ -21,3 +21,7 @@ class DeleteItemSerializer(BaseItemSerializer):
 
 class CreateItemSerializer(BaseItemSerializer):
     pass
+
+
+class GetItemsSerializer(BaseItemSerializer):
+    pass

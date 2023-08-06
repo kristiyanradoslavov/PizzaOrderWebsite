@@ -70,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'PizzaProject.context_processor.cart_count'
             ],
         },
     },
@@ -155,3 +156,12 @@ LOGOUT_REDIRECT_URL = reverse_lazy('home_page')
 STRIPE_PUBLIC_KEY = os.environ.get("SECRET_KEY", None)
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", None)
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", None)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True  # Use TLS encryption (port 587)
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'mammamia.pizzeria.mia@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Universalcontrol1994'
+EMAIL_HOST_PASSWORD = 'ocqbpvomwcdjotls'
+# DEFAULT_FROM_EMAIL = 'your@gmail.com'
