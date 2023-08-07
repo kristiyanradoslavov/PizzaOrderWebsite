@@ -1,4 +1,5 @@
 from django.contrib.auth.hashers import make_password
+from django.core import validators
 from django.db import models
 from django.contrib.auth import models as auth_models
 
@@ -39,12 +40,19 @@ class AppUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
         null=False,
         blank=False,
         unique=True,
+        validators=(
+            validators.EmailValidator(),
+        )
     )
 
     object = AppUserManager()
 
     is_staff = models.BooleanField(
         default=False
+    )
+
+    is_active = models.BooleanField(
+        default=True
     )
 
     date_joined = models.DateTimeField(

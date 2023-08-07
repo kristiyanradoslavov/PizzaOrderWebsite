@@ -4,7 +4,7 @@
 {% block profile_main %}
     <section class="ele-wrapper">
 
-        <form id="register-page" method="post" action="{% url 'login_user' %}">
+        <form id="register-page" method="post" action="{% url 'login_user' %}?next={{ request.GET.next|default:'' }}">
             <div class="wrap-box">
                 <h1>Login</h1>
 
@@ -38,12 +38,16 @@
                 <input class="btn submit" type="submit" value="Login">
                 {% csrf_token %}
 
-                <input type="hidden" value="{{ next }}" name="next">
+                {#                <input type="hidden" value="{{ request.GET.next }}" name="next">#}
             </div>
         </form>
 
         <div class="other-link">
             Dont have an account ? <a href="{% url 'register_user' %}">Register</a>
+        </div>
+
+        <div class="other-link">
+            Forgot your password ? <a href="{% url 'reset_password' %}">Reset</a>
         </div>
 
     </section>

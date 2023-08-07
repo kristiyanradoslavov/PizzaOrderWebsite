@@ -37,16 +37,9 @@ class ProductFormValidationMixin:
 
         return context
 
-    def get(self, request, *args, **kwargs):
-        result = super().get(request, *args, **kwargs)
-        self.request.session['previous_url'] = self.request.META.get('HTTP_REFERER')
-
-        return result
-
     def form_valid(self, form):
         result = super().form_valid(form)
 
-        previous_url = self.request.session['previous_url']
         current_product = self.get_context_data()['product']
         all_sizes = self.get_context_data()['product_sizes']
 
@@ -101,9 +94,6 @@ class ProductFormValidationMixin:
                 image=product_image,
                 price_id=stripe_price_id
             )
-
-        if previous_url:
-            return redirect(previous_url)
 
         return result
 

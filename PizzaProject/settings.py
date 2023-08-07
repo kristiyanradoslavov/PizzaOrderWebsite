@@ -162,6 +162,7 @@ EMAIL_USE_TLS = True  # Use TLS encryption (port 587)
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'mammamia.pizzeria.mia@gmail.com'
-# EMAIL_HOST_PASSWORD = 'Universalcontrol1994'
 EMAIL_HOST_PASSWORD = 'ocqbpvomwcdjotls'
 # DEFAULT_FROM_EMAIL = 'your@gmail.com'
+
+PASSWORD_RESET_TIMEOUT = 60 * 60 * 1
