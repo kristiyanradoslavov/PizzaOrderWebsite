@@ -63,6 +63,9 @@ class BaseOrderModel(models.Model):
         blank=False,
     )
 
+    def __str__(self):
+        return self.product_name
+
     class Meta:
         abstract = True
 

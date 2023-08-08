@@ -1,3 +1,4 @@
+from PizzaProject import settings
 from PizzaProject.order.models import OrderItem
 
 

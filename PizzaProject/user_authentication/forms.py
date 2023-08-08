@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import forms as auth_forms, get_user_model
 from django.contrib.auth.forms import SetPasswordForm
 
-from PizzaProject import settings
-
 UserModel = get_user_model()
 
 
