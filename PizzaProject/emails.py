@@ -20,3 +20,20 @@ def send_successful_registration_email(user):
         from_email=settings.EMAIL_HOST_USER,
         recipient_list=(user.email,),
     )
+
+
+def send_successful_order_email(user):
+    html_message = render_to_string(
+        'emails/new_order_email.html',
+        {'user': user},
+    )
+
+    plain_message = strip_tags(html_message)
+
+    send_mail(
+        subject='Order successful!',
+        message=plain_message,
+        html_message=html_message,
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=(user.email,),
+    )

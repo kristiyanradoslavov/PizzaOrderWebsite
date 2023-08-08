@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'PizzaProject.products',
     'PizzaProject.profiles',
     'PizzaProject.user_authentication.apps.UserAuthenticationConfig',
-    'PizzaProject.order',
+    'PizzaProject.order.apps.OrderConfig',
     'rest_framework',
 ]
 
@@ -157,7 +157,7 @@ STRIPE_PUBLIC_KEY = os.environ.get("SECRET_KEY", None)
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY", None)
 STRIPE_WEBHOOK_SECRET = os.environ.get("STRIPE_WEBHOOK_SECRET", None)
 
-EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', None)
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', None)
 EMAIL_HOST = os.environ.get("EMAIL_HOST", None)
 EMAIL_PORT = os.environ.get("EMAIL_PORT", None)

@@ -85,8 +85,8 @@ function calculateProductPrice() {
         }
         let currentBtn = event.target.parentNode;
 
-        let currentOrderIt = Number(currentBtn.getAttribute('data-item-id'))
-        deleteCartItem(currentOrderIt)
+        let currentOrderID = Number(currentBtn.getAttribute('data-item-id'))
+        deleteCartItem(currentOrderID)
 
     }
 
@@ -290,6 +290,14 @@ function calculateProductPrice() {
         }
         return cookieValue;
     }
+
+    // if (window.location.pathname === '/order/success/') {
+    //     (async () => {
+    //         await getItems()
+    //     })()
+    //
+    //     // callGetItemFunc()
+    // }
 }
 
 

@@ -25,5 +25,11 @@
         <a class="hover-a" href="{% url 'home_page' %}">Home page</a>
     </section>
 
+    <script>
+        document.addEventListener("load", async function () {
+            await getItems()
+            console.log("Hello")
+        });
 
+    </script>
 {% endblock %}

@@ -110,11 +110,11 @@ def stripe_webhook(request):
         )
 
         customer_id = session['metadata']['customer_id']
-        clear_order_items(customer_id)
 
         line_items = session.line_items
-        # Fulfill the purchase...
-        # fulfill_order(line_items)
+
+        create_order_history_item(customer_id)
+        clear_order_items(customer_id)
 
     return HttpResponse(status=200)
 
