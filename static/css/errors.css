@@ -1,0 +1,18 @@
+.error-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.register-error {
+    color: #b40b0b;
+    font-size: 18px;
+}
+
+.close-img {
+    width: 30px;
+    height: 20px;
+    object-fit: contain;
+}

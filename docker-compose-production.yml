@@ -10,7 +10,8 @@ services:
     env_file:
       - ./envs/.env
     volumes:
-      - /tmp/app-resources/static:/app/static
+      - /tmp/pizza_order_app/static:/app/static
+      - ./media:/app/media
     links:
       - postgres
   postgres:
@@ -31,7 +32,8 @@ services:
       - "81:80"
       - "443:443"
     volumes:
-      - /tmp/PizzaProject/static:/home/app/web/staticfiles
+      - /tmp/pizza_order_app/static:/home/app/web/staticfiles
+      - ./media:/home/app/web/media
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/logs:/var/log/nginx
       - ./certbot/www:/var/www/certbot/:ro

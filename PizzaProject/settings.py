@@ -27,6 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', None)
 DEBUG = os.environ.get('DEBUG', False)
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(' ')
+CSRF_TRUSTED_ORIGINS = [f'http://{x}:81' for x in os.environ.get('ALLOWED_HOSTS', '').split(' ')]
 
 # Application definition
 
