@@ -60,8 +60,8 @@ class CreateOrder(generic_views.FormView):
                 'quantity': current_product.quantity,
             })
 
-        domain = settings.ALLOWED_HOSTS
-        if settings.DEBUG:
+        domain = settings.ALLOWED_HOSTS[0]
+        if settings.DEBUG is True:
             domain = 'http://localhost:8000'
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
