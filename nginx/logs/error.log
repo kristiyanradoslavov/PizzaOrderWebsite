@@ -1503,6 +1503,7 @@
 2023/08/10 07:21:15 [notice] 1#1: start worker process 30
 2023/08/10 07:21:15 [notice] 1#1: start worker process 31
 2023/08/10 07:21:15 [notice] 1#1: start worker process 32
+<<<<<<< Updated upstream
 2023/08/10 11:27:22 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
 2023/08/10 11:27:22 [notice] 31#31: gracefully shutting down
 2023/08/10 11:27:22 [notice] 26#26: gracefully shutting down
@@ -1565,3 +1566,102 @@
 2023/08/10 11:27:22 [notice] 1#1: signal 17 (SIGCHLD) received from 23
 2023/08/10 11:27:22 [notice] 1#1: worker process 23 exited with code 0
 2023/08/10 11:27:22 [notice] 1#1: exit
+=======
+2023/08/10 11:06:24 [notice] 1#1: using the "epoll" event method
+2023/08/10 11:06:24 [notice] 1#1: nginx/1.25.1
+2023/08/10 11:06:24 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 11:06:24 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 11:06:24 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 11:06:24 [notice] 1#1: start worker processes
+2023/08/10 11:06:24 [notice] 1#1: start worker process 20
+2023/08/10 11:07:27 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/08/10 11:07:27 [notice] 20#20: gracefully shutting down
+2023/08/10 11:07:38 [notice] 1#1: using the "epoll" event method
+2023/08/10 11:07:38 [notice] 1#1: nginx/1.25.1
+2023/08/10 11:07:38 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 11:07:38 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 11:07:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 11:07:38 [notice] 1#1: start worker processes
+2023/08/10 11:07:38 [notice] 1#1: start worker process 20
+2023/08/10 11:07:46 [warn] 20#20: *2 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET / HTTP/1.1", upstream: "http://172.18.0.3:8000/", host: "35.157.156.154"
+2023/08/10 11:09:48 [warn] 20#20: *5 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/margarita.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/margarita.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:48 [warn] 20#20: *7 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/3/00/0000000003 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/peperone_classic.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/peperone_classic.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:48 [warn] 20#20: *6 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/4/00/0000000004 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/polo.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/polo.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:48 [warn] 20#20: *1 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/5/00/0000000005 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/toro.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/toro.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:48 [warn] 20#20: *8 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/6/00/0000000006 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/peperone_special.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/peperone_special.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:49 [warn] 20#20: *5 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/7/00/0000000007 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/mamma_mia_pizza.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/mamma_mia_pizza.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:49 [warn] 20#20: *7 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/8/00/0000000008 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/katano.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/katano.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:49 [warn] 20#20: *6 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/9/00/0000000009 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/kaprichoza.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/kaprichoza.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:49 [warn] 20#20: *2 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/0/01/0000000010 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/fungi.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/fungi.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:09:49 [warn] 20#20: *8 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/01/0000000011 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/double_eggs.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/double_eggs.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/pizza/"
+2023/08/10 11:10:20 [error] 20#20: *6 client intended to send too large body: 5492768 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:12:09 [error] 20#20: *58 client intended to send too large body: 5492768 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:15:14 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/08/10 11:15:14 [notice] 20#20: gracefully shutting down
+2023/08/10 11:15:14 [notice] 20#20: exiting
+2023/08/10 11:15:14 [notice] 20#20: exit
+2023/08/10 11:15:14 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2023/08/10 11:15:14 [notice] 1#1: worker process 20 exited with code 0
+2023/08/10 11:15:14 [notice] 1#1: exit
+2023/08/10 11:15:16 [notice] 1#1: using the "epoll" event method
+2023/08/10 11:15:16 [notice] 1#1: nginx/1.25.1
+2023/08/10 11:15:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 11:15:16 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 11:15:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 11:15:16 [notice] 1#1: start worker processes
+2023/08/10 11:15:16 [notice] 1#1: start worker process 20
+2023/08/10 11:15:32 [error] 20#20: *7 client intended to send too large body: 5492768 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:16:22 [error] 20#20: *9 client intended to send too large body: 5492760 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:17:59 [error] 20#20: *29 client intended to send too large body: 5492760 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:18:37 [error] 20#20: *30 client intended to send too large body: 5492760 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:19:52 [warn] 20#20: *31 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:19:54 [warn] 20#20: *31 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/profiles/image8-8_fd8F73O.png HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/profiles/image8-8_fd8F73O.png", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:19:58 [error] 20#20: *31 client intended to send too large body: 5492766 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:23:37 [error] 20#20: *45 client intended to send too large body: 5492766 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 11:25:14 [error] 20#20: *49 client intended to send too large body: 5492766 bytes, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "POST /profile/details/1/ HTTP/1.1", host: "35.157.156.154", referrer: "http://35.157.156.154/profile/details/1/"
+2023/08/10 12:18:11 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/08/10 12:18:11 [notice] 20#20: gracefully shutting down
+2023/08/10 12:18:11 [notice] 20#20: exiting
+2023/08/10 12:18:11 [notice] 20#20: exit
+2023/08/10 12:18:11 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2023/08/10 12:18:11 [notice] 1#1: worker process 20 exited with code 0
+2023/08/10 12:18:11 [notice] 1#1: exit
+2023/08/10 12:18:14 [notice] 1#1: using the "epoll" event method
+2023/08/10 12:18:14 [notice] 1#1: nginx/1.25.1
+2023/08/10 12:18:14 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 12:18:14 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 12:18:14 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 12:18:14 [notice] 1#1: start worker processes
+2023/08/10 12:18:14 [notice] 1#1: start worker process 20
+>>>>>>> Stashed changes
+2023/08/10 12:24:13 [notice] 1#1: using the "epoll" event method
+2023/08/10 12:24:13 [notice] 1#1: nginx/1.25.1
+2023/08/10 12:24:13 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 12:24:13 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 12:24:13 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 12:24:13 [notice] 1#1: start worker processes
+2023/08/10 12:24:13 [notice] 1#1: start worker process 20
+2023/08/10 12:25:09 [warn] 20#20: *3 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 212.5.158.231, server: mammamia-pizzeria.com, request: "GET /media/images/products/pizzas/peperone_classic.jpg HTTP/1.1", upstream: "http://172.18.0.3:8000/media/images/products/pizzas/peperone_classic.jpg", host: "35.157.156.154", referrer: "http://35.157.156.154/order/create/"
+2023/08/10 12:27:17 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/08/10 12:27:17 [notice] 20#20: gracefully shutting down
+2023/08/10 12:27:26 [notice] 20#20: exiting
+2023/08/10 12:27:26 [notice] 20#20: exit
+2023/08/10 12:27:26 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2023/08/10 12:27:26 [notice] 1#1: worker process 20 exited with code 0
+2023/08/10 12:27:26 [notice] 1#1: exit
+2023/08/10 12:27:27 [notice] 1#1: using the "epoll" event method
+2023/08/10 12:27:27 [notice] 1#1: nginx/1.25.1
+2023/08/10 12:27:27 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 12:27:27 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 12:27:27 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 12:27:27 [notice] 1#1: start worker processes
+2023/08/10 12:27:27 [notice] 1#1: start worker process 20
+2023/08/10 12:28:07 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/08/10 12:28:07 [notice] 20#20: gracefully shutting down
+2023/08/10 12:28:18 [notice] 1#1: using the "epoll" event method
+2023/08/10 12:28:18 [notice] 1#1: nginx/1.25.1
+2023/08/10 12:28:18 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2023/08/10 12:28:18 [notice] 1#1: OS: Linux 5.19.0-1029-aws
+2023/08/10 12:28:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2023/08/10 12:28:18 [notice] 1#1: start worker processes
+2023/08/10 12:28:18 [notice] 1#1: start worker process 20
