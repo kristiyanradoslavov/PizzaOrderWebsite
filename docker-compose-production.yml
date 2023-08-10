@@ -28,7 +28,7 @@ services:
   nginx:
     image: nginx
     ports:
-      - "80:80"
+      - "81:80"
       - "443:443"
     volumes:
       - /tmp/pizza_order_app/static:/home/app/web/staticfiles

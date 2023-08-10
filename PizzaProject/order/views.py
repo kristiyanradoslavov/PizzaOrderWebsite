@@ -61,7 +61,7 @@ class CreateOrder(generic_views.FormView):
                 'quantity': current_product.quantity,
             })
 
-        if not settings.DEBUG:
+        if settings.DEBUG:
             domain = 'http://localhost:8000'
         else:
             domain = f'http://{settings.ALLOWED_HOSTS[0]}'
