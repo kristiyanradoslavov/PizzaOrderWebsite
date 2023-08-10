@@ -1,6 +1,7 @@
 import stripe
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views import generic as generic_views
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
@@ -60,8 +61,8 @@ class CreateOrder(generic_views.FormView):
                 'quantity': current_product.quantity,
             })
 
-        domain = settings.ALLOWED_HOSTS[0]
-        if settings.DEBUG is True:
+        domain = f'http://{settings.ALLOWED_HOSTS[0]}'
+        if settings.DEBUG:
             domain = 'http://localhost:8000'
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
