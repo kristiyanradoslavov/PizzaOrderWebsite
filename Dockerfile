@@ -16,8 +16,4 @@ RUN pip install -r requirements.txt
 #copy the whole directory in which is the Dockerfile into the app.
 #COPY . /app/
 
-COPY manage.py /app/manage.py
-COPY media /app/media
-COPY static_collection /app/static_collection
-COPY templates /app/templates
-COPY PizzaProject /app/PizzaProject
+COPY . /app/

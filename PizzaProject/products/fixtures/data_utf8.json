@@ -1,0 +1,413 @@
+[
+  {
+    "model": "products.pizza",
+    "pk": 4,
+    "fields": {
+      "name": "Margarita",
+      "description": "Some description",
+      "slug": "margarita-4",
+      "price_small": 5.9,
+      "price_medium": 7.9,
+      "price_large": 10.0,
+      "price_extra_large": 11.9,
+      "stripe_small_price_id": "price_1NaKx5KQqkQcvlnMkaBDiJms",
+      "stripe_medium_price_id": "price_1NaKx5KQqkQcvlnMzxRcngQL",
+      "stripe_large_price_id": "price_1NaKx5KQqkQcvlnMAXt8fpnO",
+      "stripe_extra_large_price_id": "price_1NaKx5KQqkQcvlnM8flXPvQ8",
+      "image": "images/products/pizzas/margarita.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 5,
+    "fields": {
+      "name": "PeperoniClassic",
+      "description": "some description",
+      "slug": "peperoni-5",
+      "price_small": 10.0,
+      "price_medium": 14.0,
+      "price_large": 16.0,
+      "price_extra_large": 18.0,
+      "stripe_small_price_id": "price_1NaL8OKQqkQcvlnMKJHnAhtX",
+      "stripe_medium_price_id": "price_1NaL8OKQqkQcvlnMHGALyzyw",
+      "stripe_large_price_id": "price_1NaL8OKQqkQcvlnMhN5FBuv9",
+      "stripe_extra_large_price_id": "price_1NaL8OKQqkQcvlnMdfoE2ist",
+      "image": "images/products/pizzas/peperone_classic.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 6,
+    "fields": {
+      "name": "Toro",
+      "description": "some description",
+      "slug": "toro-6",
+      "price_small": 11.9,
+      "price_medium": 13.0,
+      "price_large": 15.9,
+      "price_extra_large": 16.9,
+      "stripe_small_price_id": "price_1NaLCHKQqkQcvlnMR83lNAW0",
+      "stripe_medium_price_id": "price_1NaLCHKQqkQcvlnMOKnGrggo",
+      "stripe_large_price_id": "price_1NaLCHKQqkQcvlnMxidikG6E",
+      "stripe_extra_large_price_id": "price_1NaLCHKQqkQcvlnMPmmmoSEe",
+      "image": "images/products/pizzas/toro.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 7,
+    "fields": {
+      "name": "Pulliaze",
+      "description": "some description",
+      "slug": "pulliaze-7",
+      "price_small": 9.0,
+      "price_medium": 11.0,
+      "price_large": 12.9,
+      "price_extra_large": 15.0,
+      "stripe_small_price_id": "price_1NaLBHKQqkQcvlnMRNfEONnE",
+      "stripe_medium_price_id": "price_1NaLBHKQqkQcvlnM4TeXkFT1",
+      "stripe_large_price_id": "price_1NaLBHKQqkQcvlnMXVTzX0Xe",
+      "stripe_extra_large_price_id": "price_1NaLBHKQqkQcvlnMtbPhYQoS",
+      "image": "images/products/pizzas/puliaze.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 8,
+    "fields": {
+      "name": "Pollo",
+      "description": "some description",
+      "slug": "pollo-8",
+      "price_small": 11.0,
+      "price_medium": 13.0,
+      "price_large": 14.9,
+      "price_extra_large": 16.0,
+      "stripe_small_price_id": "price_1NaLAGKQqkQcvlnMtwV9fiVx",
+      "stripe_medium_price_id": "price_1NaLAGKQqkQcvlnMXHHmBTHS",
+      "stripe_large_price_id": "price_1NaLAGKQqkQcvlnM3brArXCd",
+      "stripe_extra_large_price_id": "price_1NaLAGKQqkQcvlnMcWUxavxg",
+      "image": "images/products/pizzas/polo.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 9,
+    "fields": {
+      "name": "PeperoniSpecial",
+      "description": "some description",
+      "slug": "peperonispecial-9",
+      "price_small": 13.0,
+      "price_medium": 15.0,
+      "price_large": 16.9,
+      "price_extra_large": 17.9,
+      "stripe_small_price_id": "price_1NaL9JKQqkQcvlnM76Dpobuz",
+      "stripe_medium_price_id": "price_1NaL9JKQqkQcvlnMCEpYkueE",
+      "stripe_large_price_id": "price_1NaL9JKQqkQcvlnMBAVJZUzg",
+      "stripe_extra_large_price_id": "price_1NaL9JKQqkQcvlnMBKcw84d4",
+      "image": "images/products/pizzas/peperone_special.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 10,
+    "fields": {
+      "name": "MammaMia",
+      "description": "some description",
+      "slug": "mammamia-10",
+      "price_small": 13.0,
+      "price_medium": 15.0,
+      "price_large": 18.0,
+      "price_extra_large": 22.0,
+      "stripe_small_price_id": "price_1NaL7KKQqkQcvlnMuj8Rilme",
+      "stripe_medium_price_id": "price_1NaL7KKQqkQcvlnMKoF1O6aJ",
+      "stripe_large_price_id": "price_1NaL7KKQqkQcvlnMWk5PVg1L",
+      "stripe_extra_large_price_id": "price_1NaL7KKQqkQcvlnMAetcDmTM",
+      "image": "images/products/pizzas/mamma_mia_pizza.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 11,
+    "fields": {
+      "name": "Katano",
+      "description": "some description",
+      "slug": "katano-11",
+      "price_small": 11.0,
+      "price_medium": 13.0,
+      "price_large": 15.0,
+      "price_extra_large": 18.0,
+      "stripe_small_price_id": "price_1NaL6DKQqkQcvlnMRyAcuoAF",
+      "stripe_medium_price_id": "price_1NaL6DKQqkQcvlnMp4aDAe2J",
+      "stripe_large_price_id": "price_1NaL6DKQqkQcvlnMWbsjp5J1",
+      "stripe_extra_large_price_id": "price_1NaL6DKQqkQcvlnM4sG4JTTF",
+      "image": "images/products/pizzas/katano.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 12,
+    "fields": {
+      "name": "Kapri",
+      "description": "some description",
+      "slug": "kapri-12",
+      "price_small": 13.0,
+      "price_medium": 15.0,
+      "price_large": 17.0,
+      "price_extra_large": 20.0,
+      "stripe_small_price_id": "price_1NaL4qKQqkQcvlnMp55B7xXv",
+      "stripe_medium_price_id": "price_1NaL4qKQqkQcvlnMDA7JBUyR",
+      "stripe_large_price_id": "price_1NaL4qKQqkQcvlnM37yQzHRY",
+      "stripe_extra_large_price_id": "price_1NaL4qKQqkQcvlnMXIcGPvp8",
+      "image": "images/products/pizzas/kaprichoza.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 13,
+    "fields": {
+      "name": "Fungi",
+      "description": "some description",
+      "slug": "fungi-13",
+      "price_small": 13.0,
+      "price_medium": 15.9,
+      "price_large": 17.0,
+      "price_extra_large": 19.0,
+      "stripe_small_price_id": "price_1NaL3uKQqkQcvlnMaS3T8s5I",
+      "stripe_medium_price_id": "price_1NaL3uKQqkQcvlnMgklPaPFg",
+      "stripe_large_price_id": "price_1NaL3uKQqkQcvlnMGRsnD8RD",
+      "stripe_extra_large_price_id": "price_1NaL3uKQqkQcvlnMYD86ACzY",
+      "image": "images/products/pizzas/fungi.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 14,
+    "fields": {
+      "name": "DoubleEggs",
+      "description": "some description",
+      "slug": "doubleeggs-14",
+      "price_small": 13.0,
+      "price_medium": 14.9,
+      "price_large": 16.8,
+      "price_extra_large": 18.8,
+      "stripe_small_price_id": "price_1NaL2tKQqkQcvlnMiE8eIcwL",
+      "stripe_medium_price_id": "price_1NaL2tKQqkQcvlnMsqS1pt6n",
+      "stripe_large_price_id": "price_1NaL2tKQqkQcvlnME1e3C2bJ",
+      "stripe_extra_large_price_id": "price_1NaL2tKQqkQcvlnMmuugLZho",
+      "image": "images/products/pizzas/double_eggs.jpg"
+    }
+  },
+  {
+    "model": "products.pizza",
+    "pk": 15,
+    "fields": {
+      "name": "Diablo",
+      "description": "some description",
+      "slug": "diablo-15",
+      "price_small": 12.0,
+      "price_medium": 14.0,
+      "price_large": 15.9,
+      "price_extra_large": 17.9,
+      "stripe_small_price_id": "price_1NaL14KQqkQcvlnMT1FeirVJ",
+      "stripe_medium_price_id": "price_1NaL14KQqkQcvlnMtxP1nWrJ",
+      "stripe_large_price_id": "price_1NaL14KQqkQcvlnMiwXrWafI",
+      "stripe_extra_large_price_id": "price_1NaL14KQqkQcvlnMzE4PN9vt",
+      "image": "images/products/pizzas/Diablo.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 1,
+    "fields": {
+      "name": "AvocadoMix",
+      "description": "some description",
+      "slug": "avocadomix-1",
+      "price_small": 8.5,
+      "price_large": 10.5,
+      "stripe_small_price_id": "price_1NbJmOKQqkQcvlnMH3MlDWoy",
+      "stripe_large_price_id": "price_1NbJmOKQqkQcvlnMR1OzKpkt",
+      "image": "images/products/salads/Avocado_mix.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 2,
+    "fields": {
+      "name": "Ceasar",
+      "description": "Some description",
+      "slug": "ceasar-2",
+      "price_small": 10.0,
+      "price_large": 13.0,
+      "stripe_small_price_id": "price_1NbJnbKQqkQcvlnMoB2do32z",
+      "stripe_large_price_id": "price_1NbJnbKQqkQcvlnMszK7X18D",
+      "image": "images/products/salads/Ceasar.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 3,
+    "fields": {
+      "name": "Etna",
+      "description": "some description",
+      "slug": "etna-3",
+      "price_small": 12.0,
+      "price_large": 14.0,
+      "stripe_small_price_id": "price_1NbJp1KQqkQcvlnM7wRMA7RE",
+      "stripe_large_price_id": "price_1NbJp1KQqkQcvlnMgdGB2JhX",
+      "image": "images/products/salads/etna.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 4,
+    "fields": {
+      "name": "Garden",
+      "description": "some description",
+      "slug": "garden-4",
+      "price_small": 8.0,
+      "price_large": 10.0,
+      "stripe_small_price_id": "price_1NbJq1KQqkQcvlnMa6YVTbsE",
+      "stripe_large_price_id": "price_1NbJq1KQqkQcvlnMf4FTNzCy",
+      "image": "images/products/salads/Garden.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 5,
+    "fields": {
+      "name": "Rocka",
+      "description": "some description",
+      "slug": "rocka-5",
+      "price_small": 11.0,
+      "price_large": 13.0,
+      "stripe_small_price_id": "price_1NbJrjKQqkQcvlnMQ5jZZWWe",
+      "stripe_large_price_id": "price_1NbJrjKQqkQcvlnMjrPoxwct",
+      "image": "images/products/salads/Rocka.jpg"
+    }
+  },
+  {
+    "model": "products.salad",
+    "pk": 6,
+    "fields": {
+      "name": "Vini",
+      "description": "some description",
+      "slug": "vini-6",
+      "price_small": 10.0,
+      "price_large": 12.0,
+      "stripe_small_price_id": "price_1NbJsUKQqkQcvlnMdZPIYvDD",
+      "stripe_large_price_id": "price_1NbJsUKQqkQcvlnMRGG6ecF9",
+      "image": "images/products/salads/Vini.jpg"
+    }
+  },
+  {
+    "model": "products.desert",
+    "pk": 1,
+    "fields": {
+      "name": "Cheescake",
+      "description": "some description",
+      "slug": "cheescake-1",
+      "price": 5.6,
+      "stripe_single_price_id": "price_1NbJtOKQqkQcvlnMuKViprfi",
+      "image": "images/products/deserts/Cheescake.jpg"
+    }
+  },
+  {
+    "model": "products.desert",
+    "pk": 2,
+    "fields": {
+      "name": "Soufle",
+      "description": "some description",
+      "slug": "soufle-2",
+      "price": 7.0,
+      "stripe_single_price_id": "price_1NbJu4KQqkQcvlnMtpat4FG3",
+      "image": "images/products/deserts/chocolate_souffle.jpg"
+    }
+  },
+  {
+    "model": "products.desert",
+    "pk": 3,
+    "fields": {
+      "name": "PieBanofi",
+      "description": "some description",
+      "slug": "piebanofi-3",
+      "price": 6.0,
+      "stripe_single_price_id": "price_1NbJugKQqkQcvlnMpwQIFUFP",
+      "image": "images/products/deserts/Pie_banofi.jpg"
+    }
+  },
+  {
+    "model": "products.drink",
+    "pk": 3,
+    "fields": {
+      "name": "Corona",
+      "description": "some description",
+      "slug": "corona-3",
+      "price_small": 2.0,
+      "price_large": 3.0,
+      "stripe_small_price_id": "price_1NbJw8KQqkQcvlnMJNRdnGxH",
+      "stripe_large_price_id": "price_1NbJw8KQqkQcvlnM0kOLYFcB",
+      "small_image": "images/products/drink/corona_can.jpg",
+      "large_image": "images/products/images/corona.png"
+    }
+  },
+  {
+    "model": "products.drink",
+    "pk": 4,
+    "fields": {
+      "name": "CocaColla",
+      "description": "some description",
+      "slug": "cocacolla-4",
+      "price_small": 2.0,
+      "price_large": 3.0,
+      "stripe_small_price_id": "price_1NbJxOKQqkQcvlnMbas7Dq0X",
+      "stripe_large_price_id": "price_1NbJxOKQqkQcvlnMHMxklmbN",
+      "small_image": "images/products/drink/en-coca-cola-500mL-wet.png",
+      "large_image": "images/products/images/en-coca-cola-2L.png"
+    }
+  },
+  {
+    "model": "products.drink",
+    "pk": 5,
+    "fields": {
+      "name": "CocaCollaZero",
+      "description": "some description",
+      "slug": "cocacollazero-5",
+      "price_small": 1.5,
+      "price_large": 2.5,
+      "stripe_small_price_id": "price_1NbKzyKQqkQcvlnMAPjGI5nI",
+      "stripe_large_price_id": "price_1NbKzyKQqkQcvlnMRqChKmLt",
+      "small_image": "images/products/drink/zero-sugar--500mL-bottle--desktop--600x600--en.png",
+      "large_image": "images/products/images/zero-sugar--2L-bottle--desktop--600x600--en.png"
+    }
+  },
+  {
+    "model": "products.drink",
+    "pk": 6,
+    "fields": {
+      "name": "Fanta",
+      "description": "Some Description",
+      "slug": "fanta-6",
+      "price_small": 1.5,
+      "price_large": 2.5,
+      "stripe_small_price_id": "price_1NbL0pKQqkQcvlnMqOYwe90t",
+      "stripe_large_price_id": "price_1NbL0pKQqkQcvlnMdSsf0kD9",
+      "small_image": "images/products/drink/fanta-0.5-new.png",
+      "large_image": "images/products/images/fanta-big.png"
+    }
+  },
+  {
+    "model": "products.drink",
+    "pk": 7,
+    "fields": {
+      "name": "Tuborg",
+      "description": "Some description",
+      "slug": "tuborg-7",
+      "price_small": 3.5,
+      "price_large": 4.5,
+      "stripe_small_price_id": "price_1NbL4TKQqkQcvlnMScJERIDk",
+      "stripe_large_price_id": "price_1NbL4TKQqkQcvlnMN55115jT",
+      "small_image": "images/products/drink/beer-tuborg.png",
+      "large_image": "images/products/images/beer-tuborg.png"
+    }
+  }
+]

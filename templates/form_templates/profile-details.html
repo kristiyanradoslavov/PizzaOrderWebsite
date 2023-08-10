@@ -20,6 +20,12 @@
                     {% endif %}
                     <div class="upload">
                         {{ form.image }}
+                        {% for error in form.image.errors %}
+                            <div class="error-wrapper">
+                                <img class="close-img" src="{% static 'images/close.png' %}" alt="">
+                                <span class="register-error">{{ error }}</span>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
 
