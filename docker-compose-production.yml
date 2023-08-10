@@ -3,7 +3,6 @@ version: '3.4'
 services:
   web:
     image: ramun3/pizza_order_app
-    build: .
     command: gunicorn --bind=0.0.0.0:8000 PizzaProject.wsgi:application
     ports:
       - "8000:8000"
@@ -20,16 +19,16 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: kristiyan94
-      POSTGRES_USER: ramune33
-      POSTGRES_DB: PizzaOrderingWebsite
+      POSTGRES_PASSWORD: Kradoslavov1994
+      POSTGRES_USER: psihokiller3
+      POSTGRES_DB: PizzaOrderingWebsiteNewest
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./postgresql:/var/lib/postgresql/data
   nginx:
     image: nginx
     ports:
-      - "81:80"
+      - "80:80"
       - "443:443"
     volumes:
       - /tmp/pizza_order_app/static:/home/app/web/staticfiles
