@@ -63,6 +63,12 @@ class BaseOrderModel(models.Model):
         blank=False,
     )
 
+    date_created = models.DateTimeField(
+        auto_now_add=True,
+        blank=True,
+        null=True,
+    )
+
     def __str__(self):
         return self.product_name
 
@@ -76,11 +82,7 @@ class OrderItem(BaseOrderModel):
 
 class OrderHistory(BaseOrderModel):
     SPECIFIC_ORDER_ID_MAX_LEN = 60
-    date_created = models.DateTimeField(
-        auto_now_add=True,
-        blank=True,
-        null=True,
-    )
+
     specific_order_id = models.CharField(
         max_length=SPECIFIC_ORDER_ID_MAX_LEN,
         editable=False,

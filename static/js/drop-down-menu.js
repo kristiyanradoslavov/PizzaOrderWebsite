@@ -74,7 +74,6 @@ function calculateProductPrice() {
         let currentItem = currentBtn.getElementsByClassName('cart-item')[0]
         currentItem.textContent = "Repeated"
         repeatOrder(orderId)
-        debugger;
         getItems()
 
     }
@@ -290,14 +289,6 @@ function calculateProductPrice() {
         }
         return cookieValue;
     }
-
-    // if (window.location.pathname === '/order/success/') {
-    //     (async () => {
-    //         await getItems()
-    //     })()
-    //
-    //     // callGetItemFunc()
-    // }
 }
 
 

@@ -1,5 +1,6 @@
 import stripe
-from django.http import HttpResponse
+from django.core.exceptions import ValidationError
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic as generic_views
@@ -25,7 +26,7 @@ class CreateOrder(generic_views.FormView):
         context = super().get_context_data(**kwargs)
         all_products = {}
 
-        all_ordered_items = OrderItem.objects.filter(user_id=self.request.user)
+        all_ordered_items = OrderItem.objects.filter(user_id=self.request.user).order_by('date_created')
         total_price = 0
 
         for product in all_ordered_items:
@@ -47,13 +48,16 @@ class CreateOrder(generic_views.FormView):
     def form_valid(self, form):
         payment_type = form.cleaned_data['payment_options']
         all_filled_data = form.cleaned_data
+        all_ordered_items = OrderItem.objects.filter(user_id=self.request.user).all()
+
+        if not all_ordered_items:
+            return self.form_invalid(form)
 
         if payment_type == "Cash":
             create_order_history_item(self.request.user.id)
             clear_order_items(self.request.user.id)
             return redirect('successful_payment')
 
-        all_ordered_items = OrderItem.objects.filter(user_id=self.request.user).all()
         item_information = []
         for current_product in all_ordered_items:
             item_information.append({

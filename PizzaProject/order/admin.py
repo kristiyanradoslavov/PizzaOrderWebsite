@@ -9,6 +9,7 @@ class OrderItemAdmin(admin.ModelAdmin):
     search_fields = ['product_name', 'size']
     search_help_text = 'Search by Name of the product or Size.'
     list_filter = ['user']
+    list_display_links = ['id', 'product_name']
 
 
 @admin.register(OrderHistory)
@@ -19,17 +20,14 @@ class OrderItemAdmin(admin.ModelAdmin):
     search_fields = ['product_name', 'size']
     search_help_text = 'Search by Name of the product or Size.'
     actions = ['completed']
-
-    def mark_as_completed(self, request, queryset):
-        queryset.update(completed=True)
-
-    mark_as_completed.short_description = 'Mark selected orders as completed'
+    list_display_links = ['id', 'product_name']
+    date_hierarchy = 'date_created'
 
     fieldsets = (
-        ('General Information', {
-            'fields': ('product_name', 'size'),
+        ('User Information', {
+            'fields': ('user',)
         }),
-        ('Status', {
-            'fields': ('completed',),
+        ('Product Information', {
+            'fields': ('product_name', 'product_id', 'quantity', 'size', 'single_price', 'image', 'price_id')
         }),
     )
