@@ -6,7 +6,7 @@
 
 /* PRODUCT ELEMENTS START */
 .products-pizza-section {
-    background-image: url("../images/pizza-bg.jpg");
+    background-image: url("../images/pizza_BG.jpg");
     background-size: cover;
     object-position: center;
     background-repeat: no-repeat;
@@ -14,7 +14,21 @@
 }
 
 .products-salad-section {
-    background-image: url("../images/salad-bg.jpg");
+    background-image: url("../images/salad_BG.jpg");
+    background-size: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+}
+
+.products-dessert-section {
+    background-image: url("../images/dessert_BG.jpg");
+    background-size: cover;
+    object-position: center;
+    background-repeat: no-repeat;
+}
+
+.products-drinks-section {
+    background-image: url("../images/drinks_BG.jpg");
     background-size: cover;
     object-position: center;
     background-repeat: no-repeat;
