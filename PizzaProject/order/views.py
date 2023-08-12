@@ -1,8 +1,6 @@
 import stripe
-from django.core.exceptions import ValidationError
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
 from django.views import generic as generic_views
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
