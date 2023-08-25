@@ -111,3 +111,7 @@ class PasswordResetComplete(auth_views.PasswordResetCompleteView):
             return redirect('home_page')
 
         return super().dispatch(request, *args, **kwargs)
+
+
+# Certificate is saved at: /etc/letsencrypt/live/mammamia-pizzeria.online/fullchain.pem
+# Key is saved at:         /etc/letsencrypt/live/mammamia-pizzeria.online/privkey.pem

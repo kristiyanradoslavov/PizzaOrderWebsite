@@ -1742,3 +1742,6 @@
 2023/08/11 10:49:35 [notice] 1#1: worker process 24 exited with code 0
 2023/08/11 10:49:35 [notice] 1#1: worker process 27 exited with code 0
 2023/08/11 10:49:35 [notice] 1#1: exit
+2023/08/16 17:39:21 [emerg] 1#1: cannot load certificate "/etc/nginx/ssl/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/nginx/ssl/fullchain.pem, r) error:10000080:BIO routines::no such file)
+2023/08/16 17:48:05 [emerg] 1#1: cannot load certificate "/etc/nginx/ssl/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/nginx/ssl/fullchain.pem, r) error:10000080:BIO routines::no such file)
+2023/08/16 17:48:13 [emerg] 1#1: cannot load certificate "/etc/nginx/ssl/fullchain.pem": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/nginx/ssl/fullchain.pem, r) error:10000080:BIO routines::no such file)

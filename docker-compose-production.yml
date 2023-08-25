@@ -3,6 +3,7 @@ version: '3.4'
 services:
   web:
     image: ramun3/pizza_order_app
+    build: .
     command: gunicorn --bind=0.0.0.0:8000 PizzaProject.wsgi:application
     ports:
       - "8000:8000"
@@ -39,3 +40,11 @@ services:
       - ./certbot/conf/:/etc/nginx/ssl/:ro
     links:
       - web
+  certbot:
+    image: certbot/certbot
+    command: certonly --webroot -w /var/www/certbot -d mammamia-pizzeria.online
+    volumes:
+      - /var/www/certbot:/var/www/certbot
+      - ./certbot/conf:/etc/letsencrypt
+    depends_on:
+      - nginx
